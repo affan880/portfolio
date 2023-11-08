@@ -1,8 +1,5 @@
 import Image from 'next/image';
-import react, { useState } from 'react'
-
-import AllyBan from '../../../../public/images/ally-banner.png'
-import AllyLogo from '../../../../public/images/Ally-Logo.png'
+import ResizableImage from '@/components/ResizeableImg'
 
 const Card = ({details}) => {
   const joinWithPipe = (array) => array.join(" | ");
@@ -12,7 +9,7 @@ const Card = ({details}) => {
         <div className="bg-gray-600 bg-opacity-50 p-4 rounded-md shadow-xs cursor-pointer mb-5 flex flex-col justify-center">
             <div className="flex flex-row justify-between w-full">
               <div className="flex flex-row items-center">
-                <Image src={AllyLogo} className="h-14 w-14 rounded-md" />
+              <ResizableImage src={details.logo} height={50} />
                 <div className="flex flex-col p-2">
                   <p className="text-lg text-white font-semi-bold">{details.title}</p>
                   <p className="text-xs text-white">{stack}</p>
@@ -27,7 +24,7 @@ const Card = ({details}) => {
               </div>
             </div>
             <p className='text-xs pl-2 pt-2 pb-2 text-white'>Your go-to source for academic resources!</p>
-            <Image src={details.banner} className='rounded-md w-full text-white' width={1200} height={800} />
+            <Image src={details.banner} alt='' className='rounded-md w-full text-white' width={1200} height={800} />
 
       </div>
       

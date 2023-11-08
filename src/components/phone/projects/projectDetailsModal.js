@@ -6,11 +6,7 @@ import { FaTimes } from 'react-icons/fa';
 import { PiArrowLeftBold } from 'react-icons/pi';
 import { RiEnglishInput } from 'react-icons/ri';
 import { TbCategoryFilled, TbWorld } from 'react-icons/tb';
-
-import Home from '../../../../public/images/academic-ally/home.png';
-import profile from '../../../../public/images/academic-ally/profile.png';
-import search from '../../../../public/images/academic-ally/search.png';
-import seekhub from '../../../../public/images/academic-ally/seekhub - Request.png';
+import ResizableImage from '@/components/ResizeableImg'
 import AllyLogo from '../../../../public/images/Ally-Logo.png'
 
 import './styles.css'
@@ -45,10 +41,10 @@ const ProjectDetailsModal = ({ visible, closeModal, closeAllModals,project}) => 
             </div>
             <div className='flex flex-col p-4 h-full overflow-y-auto'>
               <div className='flex flex-row '>
-                <Image src={AllyLogo} className='h-24 w-24 rounded-lg mr-3' />
+              <ResizableImage src={project.logo} height={100} />
                 <div className="flex flex-col p-2">
-                  <p className="text-xl font-semi-bold">{project?.title} -  {project?.tagLine}</p>
-                  <p className="text-sm">{stack}</p>
+                  <p className="text-md font-semi-bold text-white">{project?.title} -  {project?.tagLine}</p>
+                  <p className="text-sm text-white">{stack}</p>
                 </div>
               </div>
               <div className='flex flex-row justify-between items-center overflow-x-auto custom-scrollbar w-full'>
@@ -98,7 +94,7 @@ const ProjectDetailsModal = ({ visible, closeModal, closeAllModals,project}) => 
                 <div className='flex flex-row justify-between overflow-x-auto custom-scrollbar w-full'>
                   {
                     (project?.screenshots).map((item, key)=>(
-                      <Image src={item} className='rounded-md w-full' width={150} height={800} />
+                      <ResizableImage src={item} height={400} key={key} />
                     ))}
                 </div>
             </div>

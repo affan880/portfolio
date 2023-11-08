@@ -6,6 +6,7 @@ import { FaTimes } from 'react-icons/fa';
 import { PiArrowLeftBold } from 'react-icons/pi';
 import { RiEnglishInput } from 'react-icons/ri';
 import { TbCategoryFilled, TbWorld } from 'react-icons/tb';
+import ResizableImage from '@/components/ResizeableImg'
 
 import Home from '../../../../public/images/academic-ally/home.png';
 import profile from '../../../../public/images/academic-ally/profile.png';
@@ -44,8 +45,8 @@ const ProjectDetailsModal = ({ visible, closeModal, closeAllModals,project}) => 
               </div>
             </div>
             <div className='flex flex-col p-4 h-full overflow-y-auto custom-scrollbar'>
-              <div className='flex flex-row '>
-                <Image src={AllyLogo} className='h-24 w-24 rounded-lg mr-3' />
+              <div className='flex flex-row items-center'>
+              <ResizableImage src={project.logo} height={100} />
                 <div className="flex flex-col p-2">
                   <p className="text-xl font-semi-bold">{project?.title} -  {project?.tagLine}</p>
                   <p className="text-sm">{stack}</p>
@@ -92,12 +93,12 @@ const ProjectDetailsModal = ({ visible, closeModal, closeAllModals,project}) => 
                     dangerouslySetInnerHTML={{ __html: project?.description }}
                   />
             </div>
-              <div className='flex flex-col p-4 pt-0'>
+              <div className='flex flex-col p-4 pt-0 mb-2'>
               <p className='text-md p-2 text-white font-semi-bold'>Screenshots</p>
-                <div className='flex flex-row justify-between'>
+                <div className='flex flex-row overflow-x-auto custom-scrollbar2 justify-between'>
                   {
                     (project?.screenshots).map((item, key)=>(
-                      <Image src={item} className='rounded-md w-full' width={150} height={800} />
+                        <ResizableImage src={item} height={400} key={key} />
                     ))}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 .custom-scrollbar {
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scrollbar-color: transparent;
   }
   
@@ -8,12 +8,30 @@
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: white;
+    background-color: transparent;
     border-radius: 10px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-track {
     background-color: transparent;
     border-radius: 10px;
+  }
+  
+.custom-scrollbar2 {
+    scrollbar-width: none;
+    scrollbar-color: transparent;
+  }
+  
+  .custom-scrollbar2::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  .custom-scrollbar2::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar2::-webkit-scrollbar-track {
+    background-color: transparent;
   }
   

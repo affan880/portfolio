@@ -37,19 +37,19 @@ return (
       <div className="fixed top-[440px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-900 bg-opacity-80 w-[30%] h-[70%] rounded-md p-3" onClick={handleModalClick}>
         <div className="flex flex-row items-start justify-between p-6 border-b border-gray-600">
           <div className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900" onClick={()=> {setShowModal(true)}}>
-            <Image src={JS} className='h-14 w-14 rounded-full pb-1' />
+            <Image src={JS} className='h-14 w-14 rounded-full pb-1' alt=""/>
             <p className="text-sm">Projects</p>
           </div>
           <div onClick={() => redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-            <Image src={Pdf} className='h-14 w-14 rounded-full pb-1' />
+            <Image src={Pdf} className='h-14 w-14 rounded-full pb-1' alt=""/>
             <p className="text-sm">Resume</p>
           </div>
           <div onClick={() => redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-            <Image src={Git} className='h-14 w-14 rounded-full pb-1' />
+            <Image src={Git} className='h-14 w-14 rounded-full pb-1' alt="" />
             <p className="text-sm">Github</p>
           </div>
           <div onClick={() => redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-            <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1' />
+            <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1' alt="" />
             <p className="text-sm">LinkedIn</p>
           </div>
         </div>
@@ -73,7 +73,7 @@ return (
         </div>
         <div className="bg-opacity-80 backdrop-filter backdrop-blur-md p-8 pt-6 pb-6 fixed bottom-0 left-0 w-full flex flex-row items-center shadow-xl justify-between bg-gray-900 text-white">
           <div className="flex items-center">
-            <Image src={aboutMe.image} className="rounded-full" width={30} height={30} />
+            <Image src={aboutMe.image} className="rounded-full" width={30} height={30} alt="" />
             <div className='flex-col ml-2'>
               <p className='text-[10px] text-white'>{aboutMe.name}</p>
               <p className='text-[10px] text-white'>{aboutMe.bio}</p>

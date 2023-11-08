@@ -58,7 +58,7 @@ const Windows = ({setOs}) => {
     <>
     {showLoader && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-50">
-          <Image src={Win} className='h-24 w-24 pb-1' />
+          <Image src={Win} className='h-24 w-24 pb-1'alt="" />
         </div>
       )}
     <div style={{ 
@@ -78,29 +78,29 @@ const Windows = ({setOs}) => {
           
         <div className="min-h-screen flex flex-col items-start justify-start p-8 space-y-4">
         <div className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900" onClick={()=>{setShowModal(true)}}>
-          <Image src={JS} className='h-14 w-14 rounded-full pb-1' />
+          <Image src={JS} className='h-14 w-14 rounded-full pb-1' alt=""/>
           <p className="text-sm">Projects</p>
         </div>
         <div onClick={()=> redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-          <Image src={Pdf} className='h-14 w-14 rounded-full pb-1' />
+          <Image src={Pdf} className='h-14 w-14 rounded-full pb-1'alt="" />
           <p className="text-sm">Resume</p>
         </div>
         <div onClick={()=> redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-          <Image src={Git} className='h-14 w-14 rounded-full pb-1' />
+          <Image src={Git} className='h-14 w-14 rounded-full pb-1' alt=""/>
           <p className="text-sm">Github</p>
         </div>
         <div onClick={()=> redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-          <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1' />
+          <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1'alt="" />
           <p className="text-sm">LinkedIn</p>
         </div>
         <div onClick={()=> setOs('MacOS')} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-          <Image src={Mac} className='h-14 w-14 rounded-full pb-1' />
+          <Image src={Mac} className='h-14 w-14 rounded-full pb-1' alt=""/>
           <p className="text-sm">Mac OS</p>
         </div>
       </div>
             <div className="bg-opacity-80 backdrop-filter backdrop-blur-md p-2 fixed bottom-0 left-0 w-full flex items-center shadow-xl justify-between bg-gray-1000 text-white">
                 <div className="flex items-center">
-                <Image src={Weather} className='h-6 w-6 mr-2' />
+                <Image src={Weather} className='h-6 w-6 mr-2'alt="" />
                  <div className='flex flex-col justify-content-center'>
                  <p className="text-xs font-semi-bold">28&deg;C</p>
                   <p className="text-xs">Mist</p>
@@ -108,19 +108,19 @@ const Windows = ({setOs}) => {
                 </div>
                 <div className="flex items-center">
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' onClick={()=> {setViewWindow(!viewWindow)}} >
-                    <Image src={Win} className='h-8 w-8' />
+                    <Image src={Win} className='h-8 w-8' alt=""/>
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' >
-                    <Image src={Edge} className='h-8 w-8' />
+                    <Image src={Edge} className='h-8 w-8' alt=""/>
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' >
-                    <Image src={RN} className='h-8 w-8' />
+                    <Image src={RN} className='h-8 w-8' alt="" />
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' onClick={() => { openMailbox() }} >
-                    <Image src={Mail} className='h-8 w-8' />
+                    <Image src={Mail} className='h-8 w-8' alt="" />
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' onClick = {() => { redirect(socialLinks.calendly) }} >
-                    <Image src={Calendar} className='h-8 w-8' />
+                    <Image src={Calendar} className='h-8 w-8' alt="" />
                   </div>
                 </div>
                   <div className="flex flex-col text-right items-end">

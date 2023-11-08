@@ -79,7 +79,7 @@ const Windows = ({setOs}) => {
     <>
       {showLoader && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-50">
-          <Image src={Apple} className='h-24 w-24 pb-1' />
+          <Image src={Apple} className='h-24 w-24 pb-1' alt=""/>
         </div>
       )}
     <div style={{ 
@@ -103,27 +103,27 @@ const Windows = ({setOs}) => {
             <div className="min-h-screen flex flex-wrap items-start justify-start p-2 gap-4">
               <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
                 <div className="flex flex-col items-center justify-center cursor-pointer rounded-md transition duration-300 ease-in-out hover:bg-gray-900 project-item" onClick={() => { setShowModal(true) }}>
-                  <Image src={JS} className='h-24 w-24 rounded-full pb-1' />
+                  <Image src={JS} className='h-24 w-24 rounded-full pb-1' alt=""/>
                   <p className="text-sm text-white">Projects</p>
                 </div>
                 <div onClick={() => redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointerrounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
-                  <Image src={Pdf} className='h-24 w-24 rounded-full pb-1' />
+                  <Image src={Pdf} className='h-24 w-24 rounded-full pb-1'alt="" />
                   <p className="text-sm text-white">Resume</p>
                 </div>
                 <div onClick={() => redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
-                  <Image src={Git} className='h-24 w-24 rounded-full pb-1' />
+                  <Image src={Git} className='h-24 w-24 rounded-full pb-1'alt="" />
                   <p className="text-sm text-white">Github</p>
                 </div>
                 <div onClick={() => redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
-                  <Image src={LinkedIn} className='h-24 w-24 rounded-full pb-1' />
+                  <Image src={LinkedIn} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">LinkedIn</p>
                 </div>
                 <div onClick={() => redirect(socialLinks.calendly)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
-                  <Image src={Calendar} className='h-24 w-24 rounded-full pb-1' />
+                  <Image src={Calendar} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">Calendar</p>
                 </div>
                 <div onClick={() => setOs('Android')} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out ">
-                  <Image src={Android} className='h-24 w-24 rounded-full pb-1' />
+                  <Image src={Android} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">Android</p>
                 </div>
               </div>
@@ -131,16 +131,16 @@ const Windows = ({setOs}) => {
         </div>
         <div className="bg-opacity-80 backdrop-filter backdrop-blur-md p-2 fixed bottom-2 left-1/2 transform -translate-x-1/2 w-[90%] flex items-center justify-around shadow-xl bg-gray-900 text-white rounded-[25px]">
             <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={()=>{setupPhoneCall()}} >
-              <Image src={Phone} className='h-14 w-14' />
+              <Image src={Phone} className='h-14 w-14' alt="" />
             </div>
             <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' >
-              <Image src={Safari} className='h-14 w-14' />
+              <Image src={Safari} className='h-14 w-14' alt="" />
             </div>
             <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={() => { openMailbox() }} >
-              <Image src={Mail} className='h-14 w-14' />
+              <Image src={Mail} className='h-14 w-14' alt="" />
             </div>
             <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={() => { setShowAboutMe(true) }} >
-              <Image src={Contacts} className='h-14 w-14' />
+              <Image src={Contacts} className='h-14 w-14' alt="" />
             </div>
         </div>
     </div>

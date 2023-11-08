@@ -34,7 +34,7 @@ const ProjectsModal = ({showModal, setShowModal }) => {
         <div className="fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-800 w-[100%] h-[100%] rounded-md">
           <div className="sticky top-0 pl-2 pb-2 flex left-0 w-full items-center justify-between bg-gray-800 z-50">
             <div className="flex items-center pt-2 pl-2">
-              <Image src={JS} className='h-6 w-6 mr-2' />
+              <Image src={JS} className='h-6 w-6 mr-2' alt='Logo' />
               <p className="text-xs font-semi-bold text-white">Projects</p>
             </div>
             <div className="flex items-center">
