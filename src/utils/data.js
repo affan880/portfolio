@@ -156,8 +156,8 @@ const projects = [
     email: "syedaffan880@gmail.com",
     github: 'https://github.com/affan880',
     linkedin: 'https://www.linkedin.com/in/syed-affan',
-    resume: 'https://drive.google.com/file/d/1fbLV_JoX_TGFYSOnieavfl16GUT2U1Jf/view?usp=sharing',
-    calendly: 'https://calendly.com/affann/30min'
+    resume: 'https://ik.imagekit.io/affan/Syed_Affan_CV.pdf',
+    calendly: 'https://calendly.com/affann'
   };
 
   projects.forEach((project) => {

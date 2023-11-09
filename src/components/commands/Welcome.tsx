@@ -30,7 +30,7 @@ const Welcome: React.FC = () => {
         <div>Welcome to my terminal portfolio.</div>
         <Seperator>----</Seperator>
         <div>
-          This project's source code can be found in this project's{" "}
+          This project&#39;s source code can be found in this project&#39;s{" "}
           <Link href="https://github.com/affan880/portfolio">
             GitHub repo
           </Link>
