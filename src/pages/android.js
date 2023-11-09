@@ -17,7 +17,7 @@ import Android from  '../../public/images/android-logo.svg'
 import Pdf from  '../../public/images/pdf.svg'
 import Phone from  '../../public/images/phone.svg'
 import WindowsBackground from '../../public/images/windows.jpg';
-import Terminal from '../../public/images/win-terminal.png';
+import Terminal from '../../public/images/ios-terminal.svg';
 
 const Windows = ({setOs, openTerminal}) => {
   const [showLoader, setShowLoader] = useState(true);
@@ -115,7 +115,7 @@ const Windows = ({setOs, openTerminal}) => {
                   <p className="text-sm text-white">Calendar</p>
                 </div>
                 <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
-                  <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
+                  <Image src={Terminal} className='h-24 w-24 rounded-full pb-1'alt="" />
                   <p className="text-sm">Termux</p>
                 </div>
                 <div onClick={() => setOs('Iphone')} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out ">
