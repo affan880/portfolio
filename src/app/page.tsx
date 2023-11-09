@@ -12,7 +12,7 @@ import TerminalLogo from '../../public/images/win-terminal.png'
 
 export default function Home() {
   const [os, setOs] = useState('');
-  const [terminal,setTerminal] = useState(true);
+  const [terminal,setTerminal] = useState(false);
   useEffect(() => {
     const detectOS = () => {
       if (typeof navigator !== 'undefined') {
@@ -46,7 +46,6 @@ export default function Home() {
 
     const userOS = detectOS();
     setOs(userOS)
-    console.log(`Detected OS: ${userOS}`);
     }, []);
 
     const openTerminal = () => {

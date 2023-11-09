@@ -111,7 +111,7 @@ const MacOs = ({setOs, openTerminal}) => {
         </div>
         <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">Terminal</p>
+          <p className="text-sm">xTerminal</p>
         </div>
       </div>
             <div className="p-2 fixed bottom-0 left-0 w-full flex items-center justify-center">
