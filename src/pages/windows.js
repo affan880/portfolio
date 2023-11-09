@@ -16,8 +16,9 @@ import Weather from '../../public/images/weather-win.svg'
 import Win from  '../../public/images/win11.svg'
 import WindowsBackground from '../../public/images/windows.jpg';
 import WindowsKey from '@/components/windowsKey'
+import Terminal from '../../public/images/win-terminal.png';
 
-const Windows = ({setOs}) => {
+const Windows = ({setOs, openTerminal}) => {
     const [showLoader, setShowLoader] = useState(true);
     const [currentTime, setCurrentTime] = useState('');
     const [currentDate, setCurrentDate] = useState('');
@@ -93,6 +94,10 @@ const Windows = ({setOs}) => {
           <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1'alt="" />
           <p className="text-sm">LinkedIn</p>
         </div>
+        <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
+          <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
+          <p className="text-sm">Terminal</p>
+        </div>
         <div onClick={()=> setOs('MacOS')} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={Mac} className='h-14 w-14 rounded-full pb-1' alt=""/>
           <p className="text-sm">Mac OS</p>
@@ -110,7 +115,7 @@ const Windows = ({setOs}) => {
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' onClick={()=> {setViewWindow(!viewWindow)}} >
                     <Image src={Win} className='h-8 w-8' alt=""/>
                   </div>
-                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' >
+                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50'onClick={()=>{redirect('https://portfolio.affan.codes')}} >
                     <Image src={Edge} className='h-8 w-8' alt=""/>
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-50' >

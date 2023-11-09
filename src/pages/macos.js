@@ -16,8 +16,9 @@ import Mail from  '../../public/images/mail-mac.svg'
 import Pdf from  '../../public/images/pdf.svg'
 import RN from  '../../public/images/rn.svg'
 import Safari from  '../../public/images/safari.svg'
+import Terminal from '../../public/images/ios-terminal.png';
 
-const MacOs = ({setOs}) => {
+const MacOs = ({setOs, openTerminal}) => {
     const [showLoader, setShowLoader] = useState(true);
     const [currentTime, setCurrentTime] = useState('');
     const [currentDate, setCurrentDate] = useState('');
@@ -108,10 +109,14 @@ const MacOs = ({setOs}) => {
           <Image src={Win} className='h-14 w-14 rounded-full pb-1' alt=""/>
           <p className="text-sm">Windows</p>
         </div>
+        <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
+          <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
+          <p className="text-sm">Terminal</p>
+        </div>
       </div>
             <div className="p-2 fixed bottom-0 left-0 w-full flex items-center justify-center">
                 <div className="bg-opacity-50 rounded-[15px] backdrop-filter backdrop-blur-md flex items-center bg-gray-900 text-white">
-                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out' >
+                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out'onClick={()=>{redirect('https://portfolio.affan.codes')}} >
                     <Image src={Safari} className='h-8 w-8'alt="" />
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out' >

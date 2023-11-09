@@ -17,9 +17,10 @@ import Phone from  '../../public/images/phone.svg'
 import Safari from  '../../public/images/safari.svg'
 import Calendar from  '../../public/images/calendar-mac.svg'
 import Apple from  '../../public/images/apple-logo-white.svg'
+import Terminal from '../../public/images/ios-terminal.png';
 
 
-const Windows = ({setOs}) => {
+const Windows = ({setOs, openTerminal}) => {
   const [showAboutMe, setShowAboutMe] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [weatherData, setWeatherData] = useState(null);
@@ -122,6 +123,10 @@ const Windows = ({setOs}) => {
                   <Image src={Calendar} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">Calendar</p>
                 </div>
+                <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
+                  <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
+                  <p className="text-sm">Terminal</p>
+                </div>
                 <div onClick={() => setOs('Android')} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out ">
                   <Image src={Android} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">Android</p>
@@ -133,7 +138,7 @@ const Windows = ({setOs}) => {
             <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={()=>{setupPhoneCall()}} >
               <Image src={Phone} className='h-14 w-14' alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' >
+            <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={()=>{redirect('https://portfolio.affan.codes')}} >
               <Image src={Safari} className='h-14 w-14' alt="" />
             </div>
             <div className='flex flex-col items-center justify-center cursor-pointer  rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={() => { openMailbox() }} >

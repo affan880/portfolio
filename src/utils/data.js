@@ -18,7 +18,7 @@ const projects = [
         'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/seekhub.png',
         'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/seekhub%20-%20Request.png',
         'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/pdfViewer.png',
-        'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/allyBot.png',
+        'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/allyBot.png', 
         'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/pdfViewer.png',
         'https://ik.imagekit.io/affan/Projects/Academic%20ally%20app/profile.png'
       ],
@@ -93,7 +93,7 @@ const projects = [
         'https://ik.imagekit.io/affan/Projects/worketzy/10.png',
         'https://ik.imagekit.io/affan/Projects/worketzy/1.png',
       ],
-      link: 'https://github.com/affan880/Worketzy.git',
+      link: 'https://github.com/affan880/Worketzy',
       banner: 'https://ik.imagekit.io/affan/Projects/worketzy/4.png'
     },
     {
