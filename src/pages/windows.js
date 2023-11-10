@@ -2,6 +2,7 @@ import Modal from '@/components/windows/projects/projectsModal';
 import { socialLinks } from '@/utils/data'
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 import Calendar from  '../../public/images/calendar-win.svg'
 import Edge from  '../../public/images/edge-win.svg'
