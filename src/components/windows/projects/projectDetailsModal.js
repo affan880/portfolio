@@ -5,12 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import { PiArrowLeftBold } from 'react-icons/pi';
 import { RiEnglishInput } from 'react-icons/ri';
 import { TbCategoryFilled, TbWorld } from 'react-icons/tb';
-
-import Home from '../../../../public/images/academic-ally/home.png';
-import profile from '../../../../public/images/academic-ally/profile.png';
-import search from '../../../../public/images/academic-ally/search.png';
-import seekhub from '../../../../public/images/academic-ally/seekhub - Request.png';
-import AllyLogo from '../../../../public/images/Ally-Logo.png'
+import {useState, useEffect} from 'react'
 
 import './styles.css'
 
