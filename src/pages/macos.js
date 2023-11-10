@@ -1,22 +1,23 @@
-import AboutMe from '@/components/common/aboutMe'
 import Modal from '@/components/mac/projects/projectsModal';
+import AboutMe from '@/components/windows/aboutMe'
 import { socialLinks } from '@/utils/data'
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 import apple from  '../../public/images/apple.svg'
 import Calendar from  '../../public/images/calendar-mac.svg'
 import Git from  '../../public/images/github.svg'
+import Terminal from '../../public/images/ios-terminal.png';
 import JS from  '../../public/images/js.svg'
 import LinkedIn from  '../../public/images/linkedIn.svg'
 import Mac from  '../../public/images/mac.svg'
-import Win from  '../../public/images/win11.svg'
 import MacOsBackground from '../../public/images/macos-wal.jpg';
 import Mail from  '../../public/images/mail-mac.svg'
 import Pdf from  '../../public/images/pdf.svg'
 import RN from  '../../public/images/rn.svg'
 import Safari from  '../../public/images/safari.svg'
-import Terminal from '../../public/images/ios-terminal.png';
+import Win from  '../../public/images/win11.svg'
 
 const MacOs = ({setOs, openTerminal}) => {
     const [showLoader, setShowLoader] = useState(true);
@@ -57,6 +58,39 @@ const MacOs = ({setOs, openTerminal}) => {
   
   return (
    <>
+        <Head>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "Person",
+              "name": "Syed Affan",
+              "url": "https://affan.codes",
+              "sameAs": [
+                "https://www.linkedin.com/in/syed-affan",
+                "https://github.com/affan880",
+                "https://calendly.com/affann",
+                "https://ik.imagekit.io/affan/Syed_Affan_CV.pdf"
+              ],
+              "jobTitle": "React Web and App Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Your Company or Freelance"
+              },
+              "mainEntityOfPage": {
+                "@type": "CreativeWork",
+                "url": "https://affan.codes"
+              },
+              "description": "Experienced React web and app developer with a passion for creating innovative and user-friendly applications. Explore my portfolio to see a showcase of my projects and skills.",
+              "image": "https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Osmania University"
+              }
+            }
+          `}
+        </script>
+      </Head>
    {showLoader && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-50">
           <Image src={Mac} className='h-24 w-24 pb-1'alt="" />
@@ -109,7 +143,7 @@ const MacOs = ({setOs, openTerminal}) => {
           <Image src={Win} className='h-14 w-14 rounded-full pb-1' alt=""/>
           <p className="text-sm">Windows</p>
         </div>
-        <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
+        <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
           <p className="text-sm">xTerminal</p>
         </div>

@@ -1,24 +1,24 @@
+import AboutMe from '@/components/phone/aboutMe';
 import Modal from '@/components/phone/projects/projectsModal';
 import WeatherWidget from '@/components/phone/weatherWidget'
 import { aboutMe, socialLinks } from '@/utils/data'
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import AboutMe from '@/components/phone/aboutMe';
+import Head from 'next/head';
 
+import Android from  '../../public/images/android-logo.svg'
+import Apple from  '../../public/images/apple-logo-white.svg'
+import Calendar from  '../../public/images/calendar-mac.svg'
 import Contacts from  '../../public/images/Gcontacts.svg'
 import Git from  '../../public/images/github.svg'
 import Mail from  '../../public/images/gmail.svg'
+import Terminal from '../../public/images/ios-terminal.svg';
 import Iphone from '../../public/images/iphone.jpg';
 import JS from  '../../public/images/js.svg'
 import LinkedIn from  '../../public/images/linkedIn.svg'
-import Android from  '../../public/images/android-logo.svg'
 import Pdf from  '../../public/images/pdf.svg'
 import Phone from  '../../public/images/phone.svg'
 import Safari from  '../../public/images/safari.svg'
-import Calendar from  '../../public/images/calendar-mac.svg'
-import Apple from  '../../public/images/apple-logo-white.svg'
-import Terminal from '../../public/images/ios-terminal.svg';
-
 
 const Windows = ({setOs, openTerminal}) => {
   const [showAboutMe, setShowAboutMe] = useState(false);
@@ -78,6 +78,39 @@ const Windows = ({setOs, openTerminal}) => {
       }
   return (
     <>
+         <Head>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "Person",
+              "name": "Syed Affan",
+              "url": "https://affan.codes",
+              "sameAs": [
+                "https://www.linkedin.com/in/syed-affan",
+                "https://github.com/affan880",
+                "https://calendly.com/affann",
+                "https://ik.imagekit.io/affan/Syed_Affan_CV.pdf"
+              ],
+              "jobTitle": "React Web and App Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Your Company or Freelance"
+              },
+              "mainEntityOfPage": {
+                "@type": "CreativeWork",
+                "url": "https://affan.codes"
+              },
+              "description": "Experienced React web and app developer with a passion for creating innovative and user-friendly applications. Explore my portfolio to see a showcase of my projects and skills.",
+              "image": "https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Osmania University"
+              }
+            }
+          `}
+        </script>
+      </Head>
       {showLoader && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-50">
           <Image src={Apple} className='h-24 w-24 pb-1' alt=""/>
@@ -103,29 +136,29 @@ const Windows = ({setOs, openTerminal}) => {
           `}</style>
             <div className="min-h-screen flex flex-wrap items-start justify-start p-2 gap-4">
               <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
-                <div className="flex flex-col items-center justify-center cursor-pointer rounded-md transition duration-300 ease-in-out hover:bg-gray-900 project-item" onClick={() => { setShowModal(true) }}>
+                <div className="flex flex-col items-center justify-center cursor-pointer rounded-md transition duration-300 ease-in-out project-item" onClick={() => { setShowModal(true) }}>
                   <Image src={JS} className='h-24 w-24 rounded-full pb-1' alt=""/>
                   <p className="text-sm text-white">Projects</p>
                 </div>
-                <div onClick={() => redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointerrounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
+                <div onClick={() => redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointerrounded-md project-item transition duration-300 ease-in-out">
                   <Image src={Pdf} className='h-24 w-24 rounded-full pb-1'alt="" />
                   <p className="text-sm text-white">Resume</p>
                 </div>
-                <div onClick={() => redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
+                <div onClick={() => redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out">
                   <Image src={Git} className='h-24 w-24 rounded-full pb-1'alt="" />
                   <p className="text-sm text-white">Github</p>
                 </div>
-                <div onClick={() => redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
+                <div onClick={() => redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out">
                   <Image src={LinkedIn} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">LinkedIn</p>
                 </div>
-                <div onClick={() => redirect(socialLinks.calendly)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out hover:bg-gray-900">
+                <div onClick={() => redirect(socialLinks.calendly)} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out">
                   <Image src={Calendar} className='h-24 w-24 rounded-full pb-1' alt="" />
                   <p className="text-sm text-white">Calendar</p>
                 </div>
-                <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
+                <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out">
                   <Image src={Terminal} className='h-24 w-24 rounded-full pb-1'alt="" />
-                  <p className="text-sm">Terminal</p>
+                  <p className="text-sm text-white">xTerminal</p>
                 </div>
                 <div onClick={() => setOs('Android')} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out ">
                   <Image src={Android} className='h-24 w-24 rounded-full pb-1' alt="" />

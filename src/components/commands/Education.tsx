@@ -1,5 +1,6 @@
 import { EduIntro, EduList } from "../styles/Education.styled";
 import { Wrapper } from "../styles/Output.styled";
+import { eduBg } from "@/utils/data";
 
 const Education: React.FC = () => {
   return (
@@ -14,16 +15,4 @@ const Education: React.FC = () => {
     </Wrapper>
   );
 };
-
-const eduBg = [
-  {
-    title: "B.E in Information Technology",
-    desc: "Osmania University| 2019 ~ 2023",
-  },
-  {
-    title: "IELTS 7",
-    desc: "IDP | 2023",
-  },
-];
-
 export default Education;

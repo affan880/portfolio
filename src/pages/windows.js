@@ -1,4 +1,4 @@
-import Modal from '@/components/common/projects/projectsModal';
+import Modal from '@/components/windows/projects/projectsModal';
 import { socialLinks } from '@/utils/data'
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -57,6 +57,39 @@ const Windows = ({setOs, openTerminal}) => {
   
   return (
     <>
+     <Head>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "Person",
+              "name": "Syed Affan",
+              "url": "https://affan.codes",
+              "sameAs": [
+                "https://www.linkedin.com/in/syed-affan",
+                "https://github.com/affan880",
+                "https://calendly.com/affann",
+                "https://ik.imagekit.io/affan/Syed_Affan_CV.pdf"
+              ],
+              "jobTitle": "React Web and App Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Your Company or Freelance"
+              },
+              "mainEntityOfPage": {
+                "@type": "CreativeWork",
+                "url": "https://affan.codes"
+              },
+              "description": "Experienced React web and app developer with a passion for creating innovative and user-friendly applications. Explore my portfolio to see a showcase of my projects and skills.",
+              "image": "https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Osmania University"
+              }
+            }
+          `}
+        </script>
+      </Head>
     {showLoader && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-50">
           <Image src={Win} className='h-24 w-24 pb-1'alt="" />

@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import ResizableImage from '@/components/ResizeableImg'
 import { AiFillAndroid, AiFillApple } from 'react-icons/ai';
 import { CgOrganisation } from 'react-icons/cg'
 import { FaTimes } from 'react-icons/fa';
 import { PiArrowLeftBold } from 'react-icons/pi';
 import { RiEnglishInput } from 'react-icons/ri';
 import { TbCategoryFilled, TbWorld } from 'react-icons/tb';
-import ResizableImage from '@/components/ResizeableImg'
 
 import Home from '../../../../public/images/academic-ally/home.png';
 import profile from '../../../../public/images/academic-ally/profile.png';

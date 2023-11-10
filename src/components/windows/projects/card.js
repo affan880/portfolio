@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import ResizableImage from '@/components/ResizeableImg'
-import AllyLogo from '../../../../public/images/Ally-Logo.png'
+import Image from 'next/image';
 
 const Card = ({details}) => {
   const joinWithPipe = (array) => array.join(" | ");

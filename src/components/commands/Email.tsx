@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 import { Wrapper } from "../styles/Output.styled";
 import { termContext } from "../Terminal";
+import { aboutMe } from "@/utils/data";
 
 const Email: React.FC = () => {
   const { history, rerender } = useContext(termContext);
@@ -11,12 +12,12 @@ const Email: React.FC = () => {
   const currentCommand = _.split(history[0], " ");
 
   if (rerender && currentCommand[0] === "email" && currentCommand.length <= 1) {
-    window.open("mailto:" + "syedaffan880@gmail.com", "_self");
+    window.open("mailto:" + `${aboutMe?.email}`, "_self");
   }
 
   return (
     <Wrapper>
-      <span>syedaffan880@gmail.com</span>
+      <span>{aboutMe?.email}</span>
     </Wrapper>
   );
 };

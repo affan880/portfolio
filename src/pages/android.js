@@ -1,23 +1,24 @@
+import AboutMe from '@/components/phone/aboutMe';
 import Modal from '@/components/phone/projects/projectsModal';
 import WeatherWidget from '@/components/phone/weatherWidget'
 import { aboutMe, socialLinks } from '@/utils/data'
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import AboutMe from '@/components/phone/aboutMe';
+import Head from 'next/head';
 
+import Android from  '../../public/images/android-logo.svg'
+import apple from  '../../public/images/apple-logo.svg'
 import Chrome from  '../../public/images/chrome.svg'
 import Contacts from  '../../public/images/Gcontacts.svg'
 import Git from  '../../public/images/github.svg'
 import Mail from  '../../public/images/gmail.svg'
+import Calendar from  '../../public/images/google-calendar.svg'
+import Terminal from '../../public/images/ios-terminal.svg';
 import JS from  '../../public/images/js.svg'
 import LinkedIn from  '../../public/images/linkedIn.svg'
-import Calendar from  '../../public/images/google-calendar.svg'
-import apple from  '../../public/images/apple-logo.svg'
-import Android from  '../../public/images/android-logo.svg'
 import Pdf from  '../../public/images/pdf.svg'
 import Phone from  '../../public/images/phone.svg'
 import WindowsBackground from '../../public/images/windows.jpg';
-import Terminal from '../../public/images/ios-terminal.svg';
 
 const Windows = ({setOs, openTerminal}) => {
   const [showLoader, setShowLoader] = useState(true);
@@ -69,6 +70,39 @@ const Windows = ({setOs, openTerminal}) => {
       })
   return (
     <>
+         <Head>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "Person",
+              "name": "Syed Affan",
+              "url": "https://affan.codes",
+              "sameAs": [
+                "https://www.linkedin.com/in/syed-affan",
+                "https://github.com/affan880",
+                "https://calendly.com/affann",
+                "https://ik.imagekit.io/affan/Syed_Affan_CV.pdf"
+              ],
+              "jobTitle": "React Web and App Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Your Company or Freelance"
+              },
+              "mainEntityOfPage": {
+                "@type": "CreativeWork",
+                "url": "https://affan.codes"
+              },
+              "description": "Experienced React web and app developer with a passion for creating innovative and user-friendly applications. Explore my portfolio to see a showcase of my projects and skills.",
+              "image": "https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Osmania University"
+              }
+            }
+          `}
+        </script>
+      </Head>
     {showLoader && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-50">
           <Image src={Android} className='h-24 w-24 pb-1' alt=""/>
@@ -114,9 +148,9 @@ const Windows = ({setOs, openTerminal}) => {
                   <Image src={Calendar} className='h-24 w-24 rounded-full pb-1'alt="" />
                   <p className="text-sm text-white">Calendar</p>
                 </div>
-                <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
+                <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out">
                   <Image src={Terminal} className='h-24 w-24 rounded-full pb-1'alt="" />
-                  <p className="text-sm">Termux</p>
+                  <p className="text-sm text-white">Termux</p>
                 </div>
                 <div onClick={() => setOs('Iphone')} className="flex flex-col items-center justify-center cursor-pointer rounded-md project-item transition duration-300 ease-in-out ">
                   <Image src={apple

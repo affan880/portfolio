@@ -1,10 +1,6 @@
 import { projects } from '@/utils/data'
-import Image from 'next/image';
 import React, { useState } from "react";
-import { FiMinimize, FiMaximize, FiX } from 'react-icons/fi';
-import { FaMinus, FaSquare, FaTimes } from 'react-icons/fa';
 
-import JS from '../../../../public/images/js.svg'
 import Card from './card.js'
 import ProjectDetailsModal from './projectDetailsModal'
 

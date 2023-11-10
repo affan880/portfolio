@@ -4,6 +4,7 @@ import { checkRedirect, getCurrentCmdArry, isArgInvalid } from "../../utils/func
 import { ProjectContainer, ProjectDesc, ProjectsIntro, ProjectTitle } from "../styles/Projects.styled";
 import { termContext } from "../Terminal";
 import Usage from "../Usage";
+import { projects } from "@/utils/data";
 
 const Projects: React.FC = () => {
   const { arg, history, rerender } = useContext(termContext);
@@ -14,8 +15,8 @@ const Projects: React.FC = () => {
   /* ===== check current command is redirect ===== */
   useEffect(() => {
     if (checkRedirect(rerender, currentCommand, "projects")) {
-      projects.forEach(({ id, url }) => {
-        id === parseInt(arg[1]) && window.open(url, "_blank");
+      projects.forEach(({ id, link }) => {
+        id === parseInt(arg[1]) && window.open(link, "_blank");
       });
     }
   }, [arg, rerender, currentCommand]);
@@ -34,48 +35,15 @@ const Projects: React.FC = () => {
         “Talk is cheap. Show me the code”? I got you. <br />
         Here are some of my projects you shouldn&#39;t misss
       </ProjectsIntro>
-      {projects.map(({ id, title, desc }) => (
+      {projects.map(({ id, title, description }) => (
         <ProjectContainer key={id}>
           <ProjectTitle>{`${id}. ${title}`}</ProjectTitle>
-          <ProjectDesc>{desc}</ProjectDesc>
+          <ProjectDesc>{description}</ProjectDesc>
         </ProjectContainer>
       ))}
       <Usage cmd="projects" marginY />
     </div>
   );
 };
-
-const projects = [
-  {
-    id: 1,
-    title: "Academic Ally",
-    desc: "Academic Ally is a comprehensive platform designed to empower students in their academic pursuits and support them throughout their educational journey.",
-    url: "https://play.google.com/store/apps/details?id=com.academically",
-  },
-  {
-    id: 2,
-    title: "Academic Ally Web App",
-    desc: "Academic Ally Web App is an expansion of the acclaimed Android application, designed to cater to the diverse needs of desktop users.",
-    url: "https://app.getacademically.co/",
-  },
-  {
-    id: 3,
-    title: "ULikeMe",
-    desc: "A Dating App built using react native and firebase.",
-    url: "https://github.com/affan880/ULikeMe",
-  },
-  {
-    id: 4,
-    title: "Worketzy",
-    desc: "This app was conceived as part of a mini-project with a singular goal: to revolutionize and simplify the hiring process.",
-    url: "https://github.com/affan880/Worketzy",
-  },
-  {
-    id: 5,
-    title: "IEEE Nsakcet",
-    desc: "IEEE Nsakcet is a website designed and developed to elevate the digital presence of the IEEE Student Branch.",
-    url: "https://ieeensakcet.com",
-  },
-];
 
 export default Projects;

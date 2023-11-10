@@ -1,4 +1,4 @@
-import { themeContext } from "@/app/App2";
+import { themeContext } from "@/app/page";
 import _ from "lodash";
 import { useContext, useEffect } from "react";
 

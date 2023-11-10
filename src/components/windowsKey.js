@@ -1,15 +1,14 @@
+import Modal from '@/components/windows/projects/projectsModal'
+import { aboutMe, socialLinks } from '@/utils/data'
 import Image from 'next/image';
-import React, {useState} from 'react'
-import { IoIosCall } from 'react-icons/io';
+import React, { useState } from 'react'
 import { FiMail } from 'react-icons/fi';
-import {aboutMe, socialLinks} from '@/utils/data'
-
+import { IoIosCall } from 'react-icons/io';
 
 import Git from  '../../public/images/github.svg'
 import JS from  '../../public/images/js.svg'
 import LinkedIn from  '../../public/images/linkedIn.svg'
 import Pdf from  '../../public/images/pdf.svg'
-import Modal from '@/components/common/projects/projectsModal'
 
 export default function WindowsKey({setViewWindow}) {
     const joinWithPipe = (array) => array?.join(" , ");

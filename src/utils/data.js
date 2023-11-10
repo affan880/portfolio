@@ -142,7 +142,7 @@ const projects = [
     name: 'Syed Affan',
     bio: 'React Developer',
     phone: '+919133297438',
-    skills: ['React', 'JavaScript', 'Node.js', 'CSS', 'HTML'],
+    skills: ['ReactJs', 'React Native', 'JavaScript', 'TypeScript','Node.js', 'CSS', 'HTML', 'NextJs', 'RestAPI', 'Tailwind Css', 'Bootstrap', 'Git', 'Github', 'Firebase', 'MongoDB', 'LESS', 'ICONIC', 'Sass', 'SCSS', 'Redux', 'JQuery'],
     education: {
         degree: "Bachelor's in Information Technology",
         school: "Osmania University",
@@ -150,6 +150,8 @@ const projects = [
     },
     image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg',
     email: "syedaffan880@gmail.com",
+    web: 'https://affan.codes',
+    webName: 'affan.codes',
   };
   
   const socialLinks = {
@@ -160,9 +162,16 @@ const projects = [
     calendly: 'https://calendly.com/affann'
   };
 
+  const eduBg = [
+    {
+      title: "B.E in Information Technology",
+      desc: "Osmania University| 2019 ~ 2023",
+    }
+  ];
+
   projects.forEach((project) => {
     project.technologiesJoined = joinWithPipe(project.techStack);
   });
   
-  export { projects, aboutMe, socialLinks };
+  export { projects, aboutMe, socialLinks, eduBg };
   
