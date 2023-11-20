@@ -1,6 +1,6 @@
+import ResizableImage from '@/components/ResizeableImg'
 import Image from 'next/image';
 
-import ResizableImage from '@/components/ResizeableImg'
 import AllyLogo from '../../../../public/images/Ally-Logo.png'
 
 const Card = ({details}) => {
@@ -25,7 +25,7 @@ const Card = ({details}) => {
                 </div>
               </div>
             </div>
-            <p className='text-xs pl-2 pt-2 pb-2'>Your go-to source for academic resources!</p>
+            <p className='text-xs pl-2 pt-2 pb-2'>{details.tagLine}</p>
             <Image src={details.banner} className='rounded-md w-full' width={1200} height={800} alt="" />
 
       </div>

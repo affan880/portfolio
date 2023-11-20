@@ -99,7 +99,7 @@ const projects = [
     {
       id: 5,
       title: 'IEEE Nsakcet',
-      tagLine: 'student club',
+      tagLine: 'Student club',
       description: "IEEE Nsakcet is a website designed and developed to elevate the digital presence of the IEEE Student Branch. From October to November 2022, I took the reins in creating a website that not only showcases the dynamic essence of the IEEE community but also prioritizes optimal performance and user engagement.<br/><br/> Harnessing the power of Javascript, React, React Bootstrap, and Firebase, I orchestrated a space that goes beyond aesthetics. By implementing strategic optimizations, I successfully reduced page load times by an impressive 20%, ensuring a seamless and swift browsing experience for visitors.",
       techStack: ['ReactJs', 'Firebase'],
       company: 'NSAKCET',

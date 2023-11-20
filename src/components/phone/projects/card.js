@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import ResizableImage from '@/components/ResizeableImg'
+import Image from 'next/image';
 
 const Card = ({details}) => {
   const joinWithPipe = (array) => array.join(" | ");
@@ -23,7 +23,7 @@ const Card = ({details}) => {
                 </div>
               </div>
             </div>
-            <p className='text-xs pl-2 pt-2 pb-2 text-white'>Your go-to source for academic resources!</p>
+            <p className='text-xs pl-2 pt-2 pb-2 text-white'>{details.tagLine}</p>
             <Image src={details.banner} alt='' className='rounded-md w-full text-white' width={1200} height={800} />
 
       </div>

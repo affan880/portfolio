@@ -31,7 +31,7 @@ export const PreWrapper = styled.div`
 export const PreNameMobile = styled.pre`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
-
+  overflow: hidden;
   @media (min-width: 550px) {
     display: none;
   }
