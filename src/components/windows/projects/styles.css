@@ -1,37 +1,43 @@
 .custom-scrollbar {
-    scrollbar-width: none;
-    scrollbar-color: transparent;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 2px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-  
+  scrollbar-width: none;
+  scrollbar-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
 .custom-scrollbar2 {
-    scrollbar-width: none;
-    scrollbar-color: transparent;
-  }
-  
-  .custom-scrollbar2::-webkit-scrollbar {
-    width: 1px;
-  }
-  
-  .custom-scrollbar2::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar2::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  
+  scrollbar-width: none;
+  scrollbar-color: transparent;
+}
+
+.custom-scrollbar2::-webkit-scrollbar {
+  width: 1px;
+}
+
+.custom-scrollbar2::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar2::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.custom-scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+}

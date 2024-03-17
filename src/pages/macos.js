@@ -120,7 +120,7 @@ const MacOs = ({setOs, openTerminal}) => {
         <p className="text-xs pr-2">{currentTime}</p>
         </div>
         </div>
-        <div className="min-h-screen flex flex-col items-start justify-start p-8 space-y-4">
+        <div className="min-h-screen flex flex-col items-start justify-start p-8 pl-4 space-y-4">
         <Modal>
         <div className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={JS} className='h-14 w-14 rounded-full pb-1'alt="" />
@@ -153,8 +153,8 @@ const MacOs = ({setOs, openTerminal}) => {
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out'onClick={()=>{redirect('https://portfolio.affan.codes')}} >
                     <Image src={Safari} className='h-8 w-8'alt="" />
                   </div>
-                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out' >
-                    <Image src={RN} className='h-8 w-8'alt="" />
+                  <div onClick={()=> redirect(socialLinks.github)} className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out' >
+                  <Image src={Git} className='h-8 w-8'alt="" />
                   </div>
                   <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out' onClick={() => { openMailbox() }} >
                     <Image src={Mail} className='h-8 w-8'alt="" />

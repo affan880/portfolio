@@ -11,7 +11,6 @@ import './styles.css'
 
 const ProjectsModal = ({showModal, setShowModal }) => {
   const [showProjectDetailsModal, setShowProjectDetailsModal] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
   const closeModal = () => {
@@ -24,14 +23,8 @@ const ProjectsModal = ({showModal, setShowModal }) => {
 
   return (
     <>
-    {/* <div onClick={() => setShowModal(true)}>
-        {
-          children
-        }
-    </div> */}
       {showModal ? (
-        <>
-        <div className="fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-800 w-[75%] h-[75%] rounded-md">
+        <div className="fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-800 w-[75%] h-[75%] rounded-md shadow-lg">
           <div className="sticky top-0 pl-2 pb-2 flex left-0 w-full items-center justify-between bg-gray-800 z-50">
             <div className="flex items-center pt-2 pl-2">
               <Image src={JS} className='h-6 w-6 mr-2' alt='Logo' />
@@ -49,13 +42,12 @@ const ProjectsModal = ({showModal, setShowModal }) => {
               </div>
             </div>
           </div>
-          <div className="h-[100%] overflow-y-auto custom-scrollbar bg-gray-500 bg-opacity-10 rounded-md">
+          <div className="h-[100%] overflow-y-hidden bg-gray-500 bg-opacity-10 rounded-md">
             <div className="flex flex-row">
               <p className="text-xl font-semi-bold p-6">“ Projects ”</p>
             </div>
-            <div className="h-full overflow-y-auto custom-scrollbar bg-gray-500 bg-opacity-10 rounded-md">
-            <div className="grid grid-cols-2 gap-5 p-6 mb-6">
-                {/* <Card/> */}
+            <div className="h-full overflow-y-scroll custom-scrollbar-hidden bg-gray-500 bg-opacity-10 rounded-md">
+              <div className="grid grid-cols-2 gap-5 p-6 mb-32">
                 {
                   projects.map((project, key) => (
                     <div key = {key} onClick={()=> {
@@ -70,12 +62,10 @@ const ProjectsModal = ({showModal, setShowModal }) => {
                   selectedProject && 
                   <ProjectDetailsModal visible={showProjectDetailsModal} closeModal={closeModal} closeAllModals={closeAllModals} project={selectedProject} />
                 }
+              </div>
             </div>
           </div>
-          </div>
         </div>
-
-        </>
       ) : null}
     </>
   );

@@ -7,7 +7,7 @@ export default function AboutMe({setAboutModal}) {
     const joinWithPipe = (array) => array?.join(" , ");
     let skills = joinWithPipe(aboutMe.skills);
   return (
-    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-800 w-1/4 h-2/4 rounded-md">
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-800 w-1/4 rounded-md">
   <div className="flex items-center justify-between p-4 pt-0 pr-0">
     <h2 className="text-sm text-white">About Me</h2>
     <div className="flex items-center">
