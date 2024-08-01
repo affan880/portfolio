@@ -141,11 +141,11 @@ const projects = [
   const aboutMe = {
     name: 'Syed Affan',
     bio: 'React Developer',
-    phone: '+919133297438',
+    phone: '+1 7188010785',
     skills: ['ReactJs', 'React Native', 'JavaScript', 'TypeScript','Node.js', 'CSS', 'HTML', 'NextJs', 'RestAPI', 'Tailwind Css', 'Bootstrap', 'Git', 'Github', 'Firebase', 'MongoDB', 'LESS', 'ICONIC', 'Sass', 'SCSS', 'Redux', 'JQuery'],
     education: {
-        degree: "Bachelor's in Information Technology",
-        school: "Osmania University",
+        degree: "Master's in Information Technology Management",
+        school: "St. Francis College, Brooklyn, NYC",
         graduationYear: 2023,
     },
     image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg',
@@ -164,8 +164,8 @@ const projects = [
 
   const eduBg = [
     {
-      title: "B.E in Information Technology",
-      desc: "Osmania University| 2019 ~ 2023",
+      title: "Master's in Information Technology Management",
+      desc: "St. Francis College, Brooklyn, NYC",
     }
   ];
 
