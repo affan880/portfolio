@@ -63,7 +63,7 @@ export default function Home() {
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Affan',
-              url: 'https://affan.codes',
+              url: 'https://affan.io',
               sameAs: [
                 'https://www.linkedin.com/in/syed-affan',
                 'https://github.com/affan880',

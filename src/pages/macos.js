@@ -65,7 +65,7 @@ const MacOs = ({setOs, openTerminal}) => {
               "@context": "http://schema.org",
               "@type": "Person",
               "name": "Syed Affan",
-              "url": "https://affan.codes",
+              "url": "https://affan.io",
               "sameAs": [
                 "https://www.linkedin.com/in/syed-affan",
                 "https://github.com/affan880",
@@ -79,7 +79,7 @@ const MacOs = ({setOs, openTerminal}) => {
               },
               "mainEntityOfPage": {
                 "@type": "CreativeWork",
-                "url": "https://affan.codes"
+                "url": "https://affan.io"
               },
               "description": "Experienced React web and app developer with a passion for creating innovative and user-friendly applications. Explore my portfolio to see a showcase of my projects and skills.",
               "image": "https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg",
@@ -150,7 +150,7 @@ const MacOs = ({setOs, openTerminal}) => {
       </div>
             <div className="p-2 fixed bottom-0 left-0 w-full flex items-center justify-center">
                 <div className="bg-opacity-50 rounded-[15px] backdrop-filter backdrop-blur-md flex items-center bg-gray-900 text-white">
-                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out'onClick={()=>{redirect('https://portfolio.affan.codes')}} >
+                  <div className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out'onClick={()=>{redirect('https://portfolio.affan.io')}} >
                     <Image src={Safari} className='h-8 w-8'alt="" />
                   </div>
                   <div onClick={()=> redirect(socialLinks.github)} className='flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transform transition-transform hover:scale-125 duration-300 ease-in-out' >

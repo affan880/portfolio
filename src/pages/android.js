@@ -77,7 +77,7 @@ const Windows = ({setOs, openTerminal}) => {
               "@context": "http://schema.org",
               "@type": "Person",
               "name": "Syed Affan",
-              "url": "https://affan.codes",
+              "url": "https://affan.io",
               "sameAs": [
                 "https://www.linkedin.com/in/syed-affan",
                 "https://github.com/affan880",
@@ -91,7 +91,7 @@ const Windows = ({setOs, openTerminal}) => {
               },
               "mainEntityOfPage": {
                 "@type": "CreativeWork",
-                "url": "https://affan.codes"
+                "url": "https://affan.io"
               },
               "description": "Experienced React web and app developer with a passion for creating innovative and user-friendly applications. Explore my portfolio to see a showcase of my projects and skills.",
               "image": "https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg",
@@ -167,7 +167,7 @@ const Windows = ({setOs, openTerminal}) => {
             <div className='flex flex-col items-center justify-center cursor-pointer p-0 pl-3 pr-3 rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={()=>{setupPhoneCall()}} >
               <Image src={Phone} className='h-14 w-14'alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center cursor-pointer p-0 pl-3 pr-3 rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={()=>{redirect('https://portfolio.affan.codes')}}>
+            <div className='flex flex-col items-center justify-center cursor-pointer p-0 pl-3 pr-3 rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={()=>{redirect('https://portfolio.affan.io')}}>
               <Image src={Chrome} className='h-14 w-14'alt=""  />
             </div>
             <div className='flex flex-col items-center justify-center cursor-pointer p-0 pl-3 pr-3 rounded-md transition duration-300 ease-in-out  hover:bg-opacity-50' onClick={() => { openMailbox() }} >

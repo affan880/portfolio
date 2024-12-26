@@ -150,8 +150,8 @@ const projects = [
     },
     image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg',
     email: "syedaffan880@gmail.com",
-    web: 'https://affan.codes',
-    webName: 'affan.codes',
+    web: 'https://affan.io',
+    webName: 'affan.io',
   };
   
   const socialLinks = {
