@@ -37,24 +37,24 @@ return (
         <div className="flex flex-row items-start justify-between p-6 border-b border-gray-600">
           <div className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900" onClick={()=> {setShowModal(true)}}>
             <Image src={JS} className='h-14 w-14 rounded-full pb-1' alt=""/>
-            <p className="text-sm">Projects</p>
+            <p className="text-s text-white">Projects</p>
           </div>
           <div onClick={() => redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
             <Image src={Pdf} className='h-14 w-14 rounded-full pb-1' alt=""/>
-            <p className="text-sm">Resume</p>
+            <p className="text-sm text-white">Resume</p>
           </div>
           <div onClick={() => redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
             <Image src={Git} className='h-14 w-14 rounded-full pb-1' alt="" />
-            <p className="text-sm">Github</p>
+            <p className="text-sm text-white">Github</p>
           </div>
           <div onClick={() => redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
             <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1' alt="" />
-            <p className="text-sm">LinkedIn</p>
+            <p className="text-sm text-white">LinkedIn</p>
           </div>
         </div>
         <div className='flex flex-row p-3 pl-8 items-start border-b border-gray-600 pb-2'>
             <p className="text-xs text-white mr-2 text-start w-[30%]">Phone: </p>
-            <p className="text-gray-400 text-center text-xs">+919133297438</p>
+            <p className="text-gray-400 text-center text-xs">+17188010785</p>
         </div>
         <div className='flex flex-row p-3 pl-8 items-start border-b border-gray-600 pb-2'>
             <p className="text-xs text-white mr-2 text-start w-[30%]">Email: </p>

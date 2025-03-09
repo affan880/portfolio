@@ -124,28 +124,28 @@ const MacOs = ({setOs, openTerminal}) => {
         <Modal>
         <div className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={JS} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">Projects</p>
+          <p className="text-sm text-white">Projects</p>
         </div>
         </Modal>
         <div onClick={()=> redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={Pdf} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">Resume</p>
+          <p className="text-sm text-white">Resume</p>
         </div>
         <div onClick={()=> redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={Git} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">Github</p>
+          <p className="text-sm text-white">Github</p>
         </div>
         <div onClick={()=> redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">LinkedIn</p>
+          <p className="text-sm text-white">LinkedIn</p>
         </div>
         <div onClick={()=> setOs('Windows')} className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={Win} className='h-14 w-14 rounded-full pb-1' alt=""/>
-          <p className="text-sm">Windows</p>
+          <p className="text-sm text-white">Windows</p>
         </div>
         <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 rounded-md transition duration-300 ease-in-out hover:bg-gray-900 hover:bg-opacity-20">
           <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">xTerminal</p>
+          <p className="text-sm text-white">xTerminal</p>
         </div>
       </div>
             <div className="p-2 fixed bottom-0 left-0 w-full flex items-center justify-center">

@@ -44,7 +44,7 @@ const ProjectsModal = ({children}) => {
           </div>
           <div className="h-[100%] overflow-y-auto custom-scrollbar bg-gray-500 bg-opacity-10 rounded-md">
             <div className="flex flex-row">
-              <p className="text-xl font-semi-bold p-6">“ Projects ”</p>
+              <p className="text-xl font-semi-bold p-6 text-white">“ Projects ”</p>
             </div>
             <div className="h-full overflow-y-auto custom-scrollbar bg-gray-500 bg-opacity-10 rounded-md">
             <div className="grid grid-cols-2 gap-5 p-6">

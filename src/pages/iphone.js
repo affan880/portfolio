@@ -138,7 +138,7 @@ const Windows = ({setOs, openTerminal}) => {
               <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
                 <div className="flex flex-col items-center justify-center cursor-pointer rounded-md transition duration-300 ease-in-out project-item" onClick={() => { setShowModal(true) }}>
                   <Image src={JS} className='h-24 w-24 rounded-full pb-1' alt=""/>
-                  <p className="text-sm text-white">Projects</p>
+                  <p className="text-sm text-white" >Projects</p>
                 </div>
                 <div onClick={() => redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointerrounded-md project-item transition duration-300 ease-in-out">
                   <Image src={Pdf} className='h-24 w-24 rounded-full pb-1'alt="" />

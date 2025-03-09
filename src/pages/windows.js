@@ -114,27 +114,27 @@ const Windows = ({setOs, openTerminal}) => {
         <div className="min-h-screen flex flex-col items-start justify-start p-8 pl-2 space-y-4">
         <div className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900" onClick={()=>{setShowModal(true)}}>
           <Image src={JS} className='h-14 w-14 rounded-full pb-1' alt=""/>
-          <p className="text-sm">Projects</p>
+          <p className="text-sm text-white">Projects</p>
         </div>
         <div onClick={()=> redirect(socialLinks.resume)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={Pdf} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">Resume</p>
+          <p className="text-sm text-white">Resume</p>
         </div>
         <div onClick={()=> redirect(socialLinks.github)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={Git} className='h-14 w-14 rounded-full pb-1' alt=""/>
-          <p className="text-sm">Github</p>
+          <p className="text-sm text-white">Github</p>
         </div>
         <div onClick={()=> redirect(socialLinks.linkedin)} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={LinkedIn} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">LinkedIn</p>
+          <p className="text-sm text-white">LinkedIn</p>
         </div>
         <div onClick={()=> openTerminal()} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={Terminal} className='h-14 w-14 rounded-full pb-1'alt="" />
-          <p className="text-sm">Terminal</p>
+          <p className="text-sm text-white">Terminal</p>
         </div>
         <div onClick={()=> setOs('MacOS')} className="flex flex-col items-center justify-center cursor-pointer p-2 pl-3 pr-3 rounded-md transition duration-300 ease-in-out hover:bg-gray-900">
           <Image src={Mac} className='h-14 w-14 rounded-full pb-1' alt=""/>
-          <p className="text-sm">Mac OS</p>
+          <p className="text-sm text-white">Mac OS</p>
         </div>
       </div>
         <div className="bg-opacity-80 backdrop-filter backdrop-blur-md p-2 fixed bottom-0 left-0 w-full flex items-center shadow-xl justify-between bg-gray-1000 text-white">
