@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { FiGithub, FiLinkedin, FiMail, FiCalendar } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiCalendar, FiCode, FiServer, FiDatabase, FiCpu } from 'react-icons/fi'
 import { socialLinks, aboutMe } from '@/utils/data'
 
 export default function Hero() {
@@ -48,11 +48,31 @@ export default function Hero() {
               Hi, I&apos;m <span className="text-primary-600">Syed Affan</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300">
-              Full Stack Developer specializing in <span className="text-primary-500 font-semibold">React</span> and <span className="text-primary-500 font-semibold">React Native</span>
+              Full Stack Developer & IT Professional
             </p>
             <p className="text-slate-600 dark:text-slate-400 text-lg max-w-md">
-              I build innovative, responsive, and user-friendly web and mobile applications.
+              With expertise in development and IT support, I create robust solutions and provide effective technical support across systems and platforms.
             </p>
+            
+            {/* Tech icons */}
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
+                <FiCode className="text-primary-500" />
+                <span className="text-sm text-slate-700 dark:text-slate-300">Development</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
+                <FiCpu className="text-primary-500" />
+                <span className="text-sm text-slate-700 dark:text-slate-300">IT Support</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
+                <FiServer className="text-primary-500" />
+                <span className="text-sm text-slate-700 dark:text-slate-300">Systems</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
+                <FiDatabase className="text-primary-500" />
+                <span className="text-sm text-slate-700 dark:text-slate-300">Infrastructure</span>
+              </div>
+            </div>
             
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4">

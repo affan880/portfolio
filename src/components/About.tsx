@@ -211,15 +211,15 @@ export default function About() {
             </h3>
             
             <p className="text-slate-700 dark:text-slate-300">
-              I&apos;m a full-stack developer specializing in building exceptional digital experiences. With expertise in React, React Native, and modern JavaScript frameworks, I create responsive and accessible web and mobile applications.
+              I&apos;m a versatile professional with expertise in both full-stack development and core IT operations. With strong capabilities in creating responsive applications, I also bring essential IT support skills including hardware/software troubleshooting, networking fundamentals, and system administration.
             </p>
             
             <p className="text-slate-700 dark:text-slate-300">
-              My educational background in Information Technology Management from St. Francis College, Brooklyn, NYC has equipped me with both technical and business knowledge, allowing me to bridge the gap between development and strategic business needs.
+              My educational background in Information Technology Management from St. Francis College, Brooklyn, NYC has equipped me with comprehensive IT knowledge spanning both development and technical support. This enables me to bridge the gap between complex technical concepts and practical business needs.
             </p>
             
             <p className="text-slate-700 dark:text-slate-300">
-              I&apos;m passionate about creating intuitive user interfaces and robust backend systems that work seamlessly together. My goal is to build digital solutions that not only look great but also solve real problems for users.
+              Beyond technical expertise, I excel in providing exceptional customer service, effective communication with non-technical users, and collaborative problem-solving. Whether developing intuitive applications or resolving critical IT issues, I'm committed to delivering high-quality solutions that create real value.
             </p>
             
             <div className="pt-4">
@@ -240,6 +240,27 @@ export default function About() {
                   +{aboutMe.skills.length - 10} more
                 </span>
               </div>
+            </div>
+            
+            {/* New IT Skills Highlight Section */}
+            <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-primary-500">
+              <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                IT Support Proficiencies
+              </h4>
+              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  <span>Strong technical troubleshooting skills across hardware, software, and network systems</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  <span>Proficient in multi-OS environments (Windows, Linux, macOS) configuration and support</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  <span>Experience with ticketing systems, Active Directory, and basic automation using PowerShell/Bash</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

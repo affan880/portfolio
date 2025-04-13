@@ -3,6 +3,7 @@
 import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from 'react'
 import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin, FiCalendar } from 'react-icons/fi'
 import { socialLinks, aboutMe } from '@/utils/data'
+// import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,11 +27,20 @@ export default function Contact() {
     setSubmitError('')
     
     try {
-      // Instead of an actual form submission, we'll just simulate success
-      // In a real application, you would send this data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Send data to Formspree with the provided ID
+      const response = await fetch('https://formspree.io/f/xldjzvya', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
       
-      // Simulate successful submission
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      
+      // Handle successful submission
       setSubmitSuccess(true)
       setFormData({ name: '', email: '', message: '' })
       
@@ -39,6 +49,7 @@ export default function Contact() {
         setSubmitSuccess(false)
       }, 5000)
     } catch (error) {
+      console.error('Error submitting form:', error)
       setSubmitError('There was an error sending your message. Please try again.')
     } finally {
       setIsSubmitting(false)

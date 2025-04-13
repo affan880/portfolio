@@ -8,7 +8,11 @@ import {
   FiDatabase, 
   FiLayers, 
   FiTool, 
-  FiPackage 
+  FiPackage,
+  FiServer,
+  FiShield,
+  FiCpu,
+  FiUsers
 } from 'react-icons/fi'
 
 const SkillCategory = [
@@ -35,6 +39,24 @@ const SkillCategory = [
     title: 'Tools & Version Control',
     icon: <FiTool className="w-6 h-6" />,
     skills: ['Git', 'Github']
+  },
+  {
+    id: 'it-core',
+    title: 'Core IT Skills',
+    icon: <FiCpu className="w-6 h-6" />,
+    skills: ['Hardware & Software Troubleshooting', 'Windows', 'Linux', 'macOS', 'Networking Basics', 'Cybersecurity Awareness', 'Ticketing Systems']
+  },
+  {
+    id: 'it-tech',
+    title: 'Technical Tools',
+    icon: <FiServer className="w-6 h-6" />,
+    skills: ['Active Directory', 'Microsoft Office', 'Google Workspace', 'Virtualization', 'VirtualBox', 'VMware', 'SQL', 'PowerShell', 'Bash']
+  },
+  {
+    id: 'soft-skills',
+    title: 'Soft Skills',
+    icon: <FiUsers className="w-6 h-6" />,
+    skills: ['Effective Communication', 'Team Collaboration', 'Customer Service', 'Problem Solving', 'Critical Thinking']
   }
 ]
 
@@ -93,6 +115,10 @@ function SkillIcon({ skill }: { skill: string }) {
   if (lowerSkill.includes('git')) return <FiPackage className="w-5 h-5" />
   if (lowerSkill.includes('mongo') || lowerSkill.includes('firebase')) return <FiDatabase className="w-5 h-5" />
   if (lowerSkill.includes('css') || lowerSkill.includes('sass') || lowerSkill.includes('less')) return <FiLayers className="w-5 h-5" />
+  if (lowerSkill.includes('active') || lowerSkill.includes('directory')) return <FiServer className="w-5 h-5" />
+  if (lowerSkill.includes('cyber') || lowerSkill.includes('security')) return <FiShield className="w-5 h-5" />
+  if (lowerSkill.includes('network') || lowerSkill.includes('hardware')) return <FiCpu className="w-5 h-5" />
+  if (lowerSkill.includes('communication') || lowerSkill.includes('service') || lowerSkill.includes('team')) return <FiUsers className="w-5 h-5" />
   
   return <FiCode className="w-5 h-5" />
 } 

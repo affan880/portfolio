@@ -140,15 +140,28 @@ const projects = [
   
   const aboutMe = {
     name: 'Syed Affan',
-    bio: 'React Developer',
+    bio: 'Full Stack & IT Professional',
     phone: '+1 7188010785',
-    skills: ['ReactJs', 'React Native', 'JavaScript', 'TypeScript','Node.js', 'CSS', 'HTML', 'NextJs', 'RestAPI', 'Tailwind Css', 'Bootstrap', 'Git', 'Github', 'Firebase', 'MongoDB', 'LESS', 'ICONIC', 'Sass', 'SCSS', 'Redux', 'JQuery'],
+    skills: [
+      // Development skills
+      'ReactJs', 'React Native', 'JavaScript', 'TypeScript', 'Node.js', 'CSS', 'HTML', 'NextJs', 'RestAPI', 
+      'Tailwind Css', 'Bootstrap', 'Git', 'Github', 'Firebase', 'MongoDB', 'LESS', 'ICONIC', 'Sass', 'SCSS', 
+      'Redux', 'JQuery',
+      // Core IT Skills
+      'Hardware & Software Troubleshooting', 'Windows', 'Linux', 'macOS', 'Networking Basics', 
+      'Cybersecurity Awareness', 'Ticketing Systems',
+      // Technical Tools
+      'Active Directory', 'Microsoft Office', 'Google Workspace', 'Virtualization', 'VirtualBox', 
+      'VMware', 'SQL', 'PowerShell', 'Bash',
+      // Soft Skills
+      'Effective Communication', 'Team Collaboration', 'Customer Service', 'Problem Solving', 'Critical Thinking'
+    ],
     education: {
         degree: "Master's in Information Technology Management",
         school: "St. Francis College, Brooklyn, NYC",
         graduationYear: 2023,
     },
-    image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg',
+    image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg?updatedAt=1744561490822',
     email: "syedaffan880@gmail.com",
     web: 'https://affan.io',
     webName: 'affan.io',

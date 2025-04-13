@@ -33,7 +33,7 @@ const Experience: React.FC = () => {
     {
       id: 'taskbox',
       company: 'TaskBox AI',
-      title: 'Co-Founder & CTO',
+      title: 'Lead Developer',
       location: 'Greater New York Area',
       dateRange: 'Jan 2022 - Present',
       achievements: [
