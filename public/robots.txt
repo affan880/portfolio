@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://affan.io
+
+# Sitemaps
+Sitemap: https://affan.io/sitemap.xml
+Sitemap: https://affan.io/server-sitemap.xml

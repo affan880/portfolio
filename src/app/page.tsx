@@ -1,106 +1,160 @@
 'use client'
 
-import { useEffect, useState } from "react";
-import Windows from '@/pages/windows'
-import Android from '@/pages/android'
-import MacOs from '@/pages/macos'
-import Iphone from '@/pages/iphone'
-import Image from 'next/image';
-import { FaMinus, FaSquare, FaTimes } from 'react-icons/fa';
-import TerminalLogo from '../../public/images/win-terminal.png'
-import Head from 'next/head'
-import TerminalMain from './terminalMain'
+import Header from '@/components/Header'
+import Hero from '@/components/Hero'
+import About from '@/components/About'
+import Experience from '@/components/Experience'
+import SkillVisualization from '@/components/SkillVisualization'
+import Projects from '@/components/Projects'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+import NavigationWrapper from '@/components/NavigationWrapper'
+import ParticleBackground from '@/components/ParticleBackground'
+import CustomCursor from '@/components/CustomCursor'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+
+// Reusable animation component for sections
+interface AnimatedSectionProps {
+  id: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const AnimatedSection = ({ id, children, className = "" }: AnimatedSectionProps) => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [100, 0, 0, -100]);
+  
+  return (
+    <motion.section 
+      id={id}
+      ref={sectionRef}
+      style={{ opacity, y }}
+      className={className}
+    >
+      {children}
+    </motion.section>
+  );
+};
 
 export default function Home() {
-  const [os, setOs] = useState('');
-  const [terminal,setTerminal] = useState(false);
-  useEffect(() => {
-    const detectOS = () => {
-      if (typeof navigator !== 'undefined') {
-        const platform = navigator.platform.toLowerCase();
-        if (platform.includes('win')) {
-          return 'Windows';
-        } else if (platform.includes('mac')) {
-          return 'MacOS';
-        } else if (platform.includes('linux')) {
-          const screenWidth = window.innerWidth;
-          if (screenWidth <= 767) {
-            return 'Android';
-          } else {
-            return 'Windows';
-          }
-        } else if (platform.includes('iphone')) {
-          return 'Iphone';
-        } else if (platform.includes('android')) {
-          return 'Android';
-        } else {
-          const screenWidth = window.innerWidth;
-          if (screenWidth <= 767) {
-            return 'Android';
-          } else {
-            return 'Windows';
-          }
-        }
-      }
-      return 'Unknown'; 
-    };
-
-    const userOS = detectOS();
-    setOs(userOS)
-    }, []);
-
-    const openTerminal = () => {
-      setTerminal(true);
-    }
-    
+  const mainRef = useRef(null)
+  const { scrollYProgress } = useScroll({ container: mainRef })
+  
+  // Progress indicator for scrolling
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1])
+  
   return (
-    <div>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Affan',
-              url: 'https://affan.io',
-              sameAs: [
-                'https://www.linkedin.com/in/syed-affan',
-                'https://github.com/affan880',
-              ],
-            }),
-          }}
-        />
-      </Head>
-      <main className="flex min-h-screen flex-col justify-between">
-      {terminal ? 
-        <div className='fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-50 outline-none focus:outline-none bg-gray-800 w-[100%] h-[100%] rounded-md'>
-          <div className="sticky top-0 pl-2 pb-0 flex left-0 w-full items-center justify-between z-50">
-            <div className="flex items-center pt-2 pl-2">
-              <Image src={TerminalLogo} className='h-6 w-6 mr-2' alt='Logo' />
-              <p className="text-xs font-semi-bold text-white">Projects</p>
+    <>
+      <CustomCursor />
+      <ParticleBackground />
+      
+      {/* Scroll progress indicator */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-primary-500 to-purple-500 z-50 transform origin-left"
+        style={{ scaleX }}
+      />
+      
+      <NavigationWrapper>
+        <main ref={mainRef} className="flex min-h-screen flex-col bg-white dark:bg-slate-900">
+          <Header />
+          
+          <section id="home">
+            <Hero />
+          </section>
+          
+          <AnimatedSection id="about" className="py-20 bg-white dark:bg-slate-900">
+            <About />
+          </AnimatedSection>
+          
+          <AnimatedSection id="experience" className="py-20 bg-slate-50 dark:bg-slate-800/30">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                className="flex flex-col items-center mb-12"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
+                  Work <span className="text-primary-600">Experience</span>
+                </h2>
+                <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
+              </motion.div>
+              <Experience />
             </div>
-            <div className="flex items-center">
-              <div className="flex flex-row items-center justify-center cursor-pointer p-2 pl-4 pr-4 transition duration-300 ease-in-out hover:bg-gray-900" onClick={() => setTerminal(false)}>
-                <FaMinus className="text-white" />
-              </div>
-              <div className="flex flex-row items-center justify-center cursor-pointer p-2 pl-4 pr-4 transition duration-300 ease-in-out hover:bg-gray-900" onClick={() => setTerminal(false)}>
-                <FaSquare className="text-white" />
-              </div>
-              <div className="flex flex-row items-center justify-center cursor-pointer p-2  pl-4 pr-4 transition duration-300 ease-in-out hover:bg-red-500" onClick={() => setTerminal(false)}>
-                <FaTimes className="text-white" /> 
-              </div>
+          </AnimatedSection>
+          
+          <AnimatedSection id="skills" className="py-20 bg-white dark:bg-slate-900">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                className="flex flex-col items-center mb-12"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
+                  My <span className="text-primary-600">Skills</span>
+                </h2>
+                <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
+              </motion.div>
+              <SkillVisualization />
             </div>
-          </div>
-          <TerminalMain/>
-        </div> 
-        : <>
-        {os === 'Windows' ? <Windows openTerminal={openTerminal}  setOs={setOs}/>: null}
-        {os === 'MacOS' ? <MacOs openTerminal={openTerminal} setOs={setOs}/>: null}
-        {os === 'Android' ? <Android openTerminal={openTerminal} setOs={setOs}/>: null}
-        {os === 'Iphone' ? <Iphone openTerminal={openTerminal} setOs={setOs}/>: null}
-        </> }
-      </main>
-    </div>
-  );
+          </AnimatedSection>
+          
+          <AnimatedSection id="projects" className="py-20 bg-slate-50 dark:bg-slate-800/30">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                className="flex flex-col items-center mb-12"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
+                  Featured <span className="text-primary-600">Projects</span>
+                </h2>
+                <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
+              </motion.div>
+              <Projects />
+            </div>
+          </AnimatedSection>
+          
+          <AnimatedSection id="contact" className="py-20 bg-white dark:bg-slate-900">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                className="flex flex-col items-center mb-12"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
+                  Get In <span className="text-primary-600">Touch</span>
+                </h2>
+                <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
+              </motion.div>
+              <Contact />
+            </div>
+          </AnimatedSection>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Footer />
+          </motion.div>
+        </main>
+      </NavigationWrapper>
+    </>
+  )
 }

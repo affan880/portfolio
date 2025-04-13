@@ -1,12 +1,14 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
+import type { Metadata } from 'next'
+import { Inter, Raleway } from 'next/font/google'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const raleway = Raleway({ subsets: ['latin'], variable: '--font-raleway' })
 
 export const metadata: Metadata = {
-  title: 'Syed Affan',
-  description: 'Explore the work and projects, a passionate Web and App Developer showcasing skills in Javascript',
+  title: 'Syed Affan | Full Stack Developer',
+  description: 'Experienced React and React Native developer specializing in creating innovative web and mobile applications',
 }
 
 export default function RootLayout({
@@ -15,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${raleway.variable}`}>
+      <body className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 min-h-screen transition-colors duration-300">
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
+      </body>
     </html>
   )
 }

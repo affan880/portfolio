@@ -42,7 +42,7 @@ function TerminalMain() {
     metaThemeColor && metaThemeColor.setAttribute("content", themeColor);
     metaMsTileColor && metaMsTileColor.setAttribute("content", themeColor);
     maskIcon && maskIcon.setAttribute("color", themeColor);
-  }, [selectedTheme]);
+  }, [theme.colors?.body, selectedTheme]);
 
   const themeSwitcher = (switchTheme: DefaultTheme) => {
     setSelectedTheme(switchTheme);

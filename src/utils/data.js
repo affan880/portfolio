@@ -158,7 +158,7 @@ const projects = [
     email: "syedaffan880@gmail.com",
     github: 'https://github.com/affan880',
     linkedin: 'https://www.linkedin.com/in/syed-affan',
-    resume: 'https://ik.imagekit.io/affan/Syed_Affan_CV.pdf?updatedAt=1710692663671',
+    resume: 'https://ik.imagekit.io/affan/Affan_Resume.pdf?updatedAt=1744561183703',
     calendly: 'https://calendly.com/affann'
   };
 
