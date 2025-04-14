@@ -1,27 +1,20 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
 import { socialLinks } from '@/utils/data'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTheme } from '@/contexts/ThemeProvider'
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  
+  const { theme, toggleTheme } = useTheme()
+  const isDarkMode = theme === 'dark'
 
   useEffect(() => {
-    // Check user's preference from localStorage or system preference
-    const darkModePreference = localStorage.getItem('darkMode') === 'true' || 
-      (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    
-    setIsDarkMode(darkModePreference)
-    if (darkModePreference) {
-      document.documentElement.classList.add('dark')
-    }
-
-    // Add scroll listener
     const handleScroll = () => {
       setScrolled(window.scrollY > 10)
     }
@@ -31,12 +24,6 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode)
-    document.documentElement.classList.toggle('dark')
-    localStorage.setItem('darkMode', (!isDarkMode).toString())
-  }
 
   return (
     <>
@@ -67,9 +54,8 @@ export default function Header() {
                 Resume
               </a>
               
-              {/* Dark Mode Toggle with Animation */}
               <motion.button 
-                onClick={toggleDarkMode} 
+                onClick={toggleTheme}
                 className="p-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white overflow-hidden"
                 aria-label="Toggle dark mode"
                 whileTap={{ scale: 0.9 }}
@@ -91,9 +77,8 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <div className="flex items-center md:hidden space-x-4">
-              {/* Dark Mode Toggle for Mobile */}
               <motion.button 
-                onClick={toggleDarkMode} 
+                onClick={toggleTheme}
                 className="p-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white overflow-hidden"
                 aria-label="Toggle dark mode"
                 whileTap={{ scale: 0.9 }}

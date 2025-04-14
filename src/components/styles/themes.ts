@@ -15,11 +15,15 @@ const theme: Themes = {
       primary: "#10b981",
       secondary: "#f59e0b",
       text: {
-        100: "#f3f4f6",
-        200: "#d1d5db",
-        300: "#6b7280",
+        primary: "#f3f4f6",
+        secondary: "#d1d5db",
+        placeholder: "#6b7280",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   light: {
     id: "T_002",
@@ -31,11 +35,15 @@ const theme: Themes = {
       primary: "#0ea5e9",
       secondary: "#f97316",
       text: {
-        100: "#1e293b",
-        200: "#334155",
-        300: "#64748b",
+        primary: "#1e293b",
+        secondary: "#334155",
+        placeholder: "#64748b",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   "blue-matrix": {
     id: "T_003",
@@ -47,11 +55,15 @@ const theme: Themes = {
       primary: "#4ade80",
       secondary: "#22d3ee",
       text: {
-        100: "#f8fafc",
-        200: "#e2e8f0",
-        300: "#38bdf8",
+        primary: "#f8fafc",
+        secondary: "#e2e8f0",
+        placeholder: "#38bdf8",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   espresso: {
     id: "T_004",
@@ -63,11 +75,15 @@ const theme: Themes = {
       primary: "#fbbf24",
       secondary: "#a3e635",
       text: {
-        100: "#fafaf9",
-        200: "#e7e5e4",
-        300: "#a8a29e",
+        primary: "#fafaf9",
+        secondary: "#e7e5e4",
+        placeholder: "#a8a29e",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   "green-goblin": {
     id: "T_005",
@@ -79,11 +95,15 @@ const theme: Themes = {
       primary: "#facc15",
       secondary: "#4ade80",
       text: {
-        100: "#a7f3d0",
-        200: "#10b981",
-        300: "#065f46",
+        primary: "#a7f3d0",
+        secondary: "#10b981",
+        placeholder: "#065f46",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   ubuntu: {
     id: "T_006",
@@ -95,11 +115,15 @@ const theme: Themes = {
       primary: "#84cc16",
       secondary: "#84cc16",
       text: {
-        100: "#ffffff",
-        200: "#fef3c7",
-        300: "#d97706",
+        primary: "#ffffff",
+        secondary: "#fef3c7",
+        placeholder: "#d97706",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   "neon-cyberpunk": {
     id: "T_007",
@@ -111,11 +135,15 @@ const theme: Themes = {
       primary: "#f472b6",
       secondary: "#22d3ee",
       text: {
-        100: "#e0f2fe",
-        200: "#a5f3fc",
-        300: "#7dd3fc",
+        primary: "#e0f2fe",
+        secondary: "#a5f3fc",
+        placeholder: "#7dd3fc",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
   "midnight-blue": {
     id: "T_008",
@@ -127,11 +155,15 @@ const theme: Themes = {
       primary: "#8b5cf6",
       secondary: "#3b82f6",
       text: {
-        100: "#f8fafc",
-        200: "#e2e8f0",
-        300: "#94a3b8",
+        primary: "#f8fafc",
+        secondary: "#e2e8f0",
+        placeholder: "#94a3b8",
       },
     },
+    fonts: {
+      body: 'var(--font-inter)',
+      heading: 'var(--font-raleway)'
+    }
   },
 };
 

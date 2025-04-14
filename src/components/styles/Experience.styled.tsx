@@ -35,21 +35,22 @@ export const Tab = styled.button<TabProps>`
   padding: 10px 20px;
   border: none;
   background: transparent;
-  color: ${({ theme, $active }) => $active ? theme.colors?.primary || '#3b82f6' : theme.colors?.text?.[100] || '#000000'};
+  color: ${({ theme, $active }) => $active ? theme.colors.primary : theme.colors.text.secondary};
   font-size: 16px;
   text-align: left;
   cursor: pointer;
   position: relative;
-  border-bottom: 2px solid ${({ theme, $active }) => $active ? theme.colors?.primary || '#3b82f6' : 'transparent'};
+  transition: color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 2px solid ${({ theme, $active }) => $active ? theme.colors.primary : 'transparent'};
   white-space: nowrap;
   
   @media (min-width: 768px) {
     border-bottom: none;
-    border-left: 2px solid ${({ theme, $active }) => $active ? theme.colors?.primary || '#3b82f6' : (theme.colors?.text?.[100] || '#000000') + '50'};
+    border-left: 2px solid ${({ theme, $active }) => $active ? theme.colors.primary : theme.colors.scrollHandle};
   }
   
   &:hover {
-    color: ${({ theme }) => theme.colors?.primary || '#3b82f6'};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -69,16 +70,16 @@ export const JobTitle = styled.h3`
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: ${({ theme }) => theme.colors?.text?.[100] || '#000000'};
+  color: ${({ theme }) => theme.colors.text.primary};
   
   .company {
-    color: ${({ theme }) => theme.colors?.primary || '#3b82f6'};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const JobDetails = styled.div`
   font-size: 14px;
-  color: ${({ theme }) => theme.colors?.text?.[200] || '#000000'};
+  color: ${({ theme }) => theme.colors.text.secondary};
   
   .separator {
     margin: 0 10px;
@@ -96,28 +97,42 @@ export const AchievementItem = styled.li`
   padding-left: 30px;
   margin-bottom: 10px;
   font-size: 16px;
-  color: ${({ theme }) => theme.colors?.text?.[100] || '#000000'};
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.text.primary};
   
   &:before {
     content: '▹';
     position: absolute;
     left: 0;
-    color: ${({ theme }) => theme.colors?.primary || '#3b82f6'};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const ProjectsContainer = styled.div`
   margin-top: 40px;
+  
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: ${({ theme }) => theme.colors.text.secondary};
+  }
+  
+  p {
+    font-size: 15px;
+    color: ${({ theme }) => theme.colors.text.primary};
+    line-height: 1.6;
+  }
 `;
 
-export const ProjectTitle = styled.h4`
+export const ProjectTitle = styled.h5`
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: ${({ theme }) => theme.colors?.text?.[100] || '#000000'};
+  margin-bottom: 8px;
+  color: ${({ theme }) => theme.colors.text.primary};
   
   a {
-    color: ${({ theme }) => theme.colors?.primary || '#3b82f6'};
+    color: ${({ theme }) => theme.colors.primary};
     margin-left: 10px;
     font-size: 14px;
     
@@ -125,4 +140,4 @@ export const ProjectTitle = styled.h4`
       text-decoration: underline;
     }
   }
-`; 
+`;
