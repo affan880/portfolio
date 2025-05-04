@@ -4,6 +4,7 @@ import { Inter, Raleway } from 'next/font/google'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { CustomThemeProvider } from '@/contexts/ThemeProvider'
 import StyledComponentsRegistry from './registry'
+import VisitorNotification from '@/components/VisitorNotification'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const raleway = Raleway({ subsets: ['latin'], variable: '--font-raleway' })
@@ -25,6 +26,7 @@ export default function RootLayout({
           <CustomThemeProvider>
             <div className="min-h-screen transition-colors duration-300">
               <ErrorBoundary>
+                <VisitorNotification />
                 {children}
               </ErrorBoundary>
             </div>

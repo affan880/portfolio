@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { FiBookmark, FiCode, FiMessageCircle } from 'react-icons/fi'
+import { FiBookmark, FiCode, FiMessageCircle, FiCalendar, FiServer } from 'react-icons/fi'
 import { aboutMe, eduBg } from '@/utils/data'
 
 export default function About() {
@@ -78,56 +78,105 @@ export default function About() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
-            About <span className="text-primary-600">Me</span>
+            My <span className="text-primary-600">Journey</span>
           </h2>
           <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
         </div>
         
-        {/* Current Project Spotlight - New Section */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-xl shadow-md">
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 flex items-center">
-            <span className="relative flex h-3 w-3 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+        {/* Current Project Spotlight - Enhanced Section */}
+        <div className="mb-12 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-xl shadow-lg border border-blue-100 dark:border-blue-800/30">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
+              <span className="relative flex h-3 w-3 mr-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+              </span>
+              Building the Future: TaskBox AI
+            </h3>
+            <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium">
+              In Development
             </span>
-            Current Project: TaskBox AI
-          </h3>
-          <p className="text-slate-700 dark:text-slate-300 mb-4">
-            I'm currently building an AI-powered productivity platform that transforms how professionals manage their workflow:
+          </div>
+          <p className="text-slate-700 dark:text-slate-300 mb-6 text-lg">
+            I'm crafting an AI-powered productivity platform that reimagines how professionals work. By combining cutting-edge AI with intuitive design, we're creating a smarter way to manage tasks and time.
           </p>
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-primary-600 dark:text-primary-400 mb-2">AI Email Integration</h4>
-              <ul className="list-disc list-inside text-sm space-y-1 text-slate-600 dark:text-slate-400">
-                <li>Smart email analysis with priority detection</li>
-                <li>Contextual follow-up recommendations</li>
-                <li>Automated action item extraction</li>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h4 className="font-semibold text-primary-600 dark:text-primary-400 mb-3 flex items-center">
+                <FiMessageCircle className="mr-2" />
+                AI Email Integration
+              </h4>
+              <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Smart email analysis with priority detection
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Contextual follow-up recommendations
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Automated action item extraction
+                </li>
               </ul>
             </div>
-            <div className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-primary-600 dark:text-primary-400 mb-2">Calendar Intelligence</h4>
-              <ul className="list-disc list-inside text-sm space-y-1 text-slate-600 dark:text-slate-400">
-                <li>AI-optimized daily scheduling</li>
-                <li>Dynamic time-blocking based on priorities</li>
-                <li>Meeting preparation automations</li>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h4 className="font-semibold text-primary-600 dark:text-primary-400 mb-3 flex items-center">
+                <FiCalendar className="mr-2" />
+                Calendar Intelligence
+              </h4>
+              <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  AI-optimized daily scheduling
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Dynamic time-blocking based on priorities
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Meeting preparation automations
+                </li>
               </ul>
             </div>
-            <div className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-primary-600 dark:text-primary-400 mb-2">Predictive Task Management</h4>
-              <ul className="list-disc list-inside text-sm space-y-1 text-slate-600 dark:text-slate-400">
-                <li>Personalized AI task recommendations</li>
-                <li>Smart categorization and prioritization</li>
-                <li>Workflow optimization suggestions</li>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h4 className="font-semibold text-primary-600 dark:text-primary-400 mb-3 flex items-center">
+                <FiCode className="mr-2" />
+                Predictive Task Management
+              </h4>
+              <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Personalized AI task recommendations
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Smart categorization and prioritization
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary-500 mr-2">•</span>
+                  Workflow optimization suggestions
+                </li>
               </ul>
             </div>
           </div>
-          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400 italic">
-            Technologies: React, TypeScript, Node.js, OpenAI API, Firebase, Redux Toolkit
+          <div className="mt-6 flex items-center justify-between">
+            <div className="text-sm text-slate-500 dark:text-slate-400 italic">
+              Technologies: React, TypeScript, Node.js, OpenAI API, Firebase, Redux Toolkit
+            </div>
+            <a 
+              href="#projects" 
+              className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+            >
+              Learn More
+            </a>
           </div>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* 3D Card Effect */}
+          {/* 3D Card Effect - Enhanced */}
           <div className="mx-auto max-w-md">
             <div 
               ref={cardRef} 
@@ -136,13 +185,16 @@ export default function About() {
             >
               <div className="bg-gradient-to-br from-primary-500 via-blue-600 to-purple-600 p-1">
                 <div className="bg-white dark:bg-slate-800 p-6 space-y-6">
-                  <Image
-                    src={aboutMe.image}
-                    alt={aboutMe.name}
-                    width={400}
-                    height={400}
-                    className="rounded-lg w-full object-cover"
-                  />
+                  <div className="relative">
+                    <Image
+                      src={aboutMe.image}
+                      alt={aboutMe.name}
+                      width={400}
+                      height={400}
+                      className="rounded-lg w-full object-cover shadow-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+                  </div>
                   
                   <div className="text-center">
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
@@ -153,10 +205,10 @@ export default function About() {
                     </p>
                   </div>
                   
-                  <div className="bg-slate-100 dark:bg-slate-700/30 p-4 rounded-lg">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="p-2 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
-                        <FiBookmark className="w-5 h-5" />
+                  <div className="bg-slate-100 dark:bg-slate-700/30 p-6 rounded-lg space-y-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
+                        <FiBookmark className="w-6 h-6" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900 dark:text-white">Education</h4>
@@ -169,9 +221,9 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="p-2 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
-                        <FiCode className="w-5 h-5" />
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
+                        <FiCode className="w-6 h-6" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900 dark:text-white">Experience</h4>
@@ -184,9 +236,9 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
-                        <FiMessageCircle className="w-5 h-5" />
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
+                        <FiMessageCircle className="w-6 h-6" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900 dark:text-white">Contact</h4>
@@ -204,63 +256,87 @@ export default function About() {
             </div>
           </div>
           
-          {/* About Text */}
-          <div className="space-y-6 animate-slide-up">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
-              Professional <span className="text-primary-600">Summary</span>
-            </h3>
+          {/* About Text - Enhanced */}
+          <div className="space-y-8 animate-slide-up">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading mb-4">
+                The <span className="text-primary-600">Story</span> So Far
+              </h3>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                My journey in technology began with a passion for solving complex problems and creating meaningful solutions. As a full-stack developer and IT professional, I've learned that the best solutions come from understanding both the technical and human aspects of every challenge.
+              </p>
+            </div>
             
-            <p className="text-slate-700 dark:text-slate-300">
-              I&apos;m a versatile professional with expertise in both full-stack development and core IT operations. With strong capabilities in creating responsive applications, I also bring essential IT support skills including hardware/software troubleshooting, networking fundamentals, and system administration.
-            </p>
+            <div>
+              <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+                What Drives Me
+              </h4>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                I believe in creating technology that enhances human potential. Whether it's developing intuitive applications or optimizing IT systems, my goal is to build solutions that make a real difference in people's lives and businesses.
+              </p>
+            </div>
             
-            <p className="text-slate-700 dark:text-slate-300">
-              My educational background in Information Technology Management from St. Francis College, Brooklyn, NYC has equipped me with comprehensive IT knowledge spanning both development and technical support. This enables me to bridge the gap between complex technical concepts and practical business needs.
-            </p>
-            
-            <p className="text-slate-700 dark:text-slate-300">
-              Beyond technical expertise, I excel in providing exceptional customer service, effective communication with non-technical users, and collaborative problem-solving. Whether developing intuitive applications or resolving critical IT issues, I'm committed to delivering high-quality solutions that create real value.
-            </p>
-            
-            <div className="pt-4">
+            <div>
               <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
                 Technical Expertise
               </h4>
-              
               <div className="flex flex-wrap gap-2">
                 {aboutMe.skills.slice(0, 10).map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm"
+                    className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium hover:bg-primary-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                   >
                     {skill}
                   </span>
                 ))}
-                <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm">
+                <span className="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium">
                   +{aboutMe.skills.length - 10} more
                 </span>
               </div>
             </div>
             
-            {/* New IT Skills Highlight Section */}
-            <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-primary-500">
-              <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                IT Support Proficiencies
+            {/* IT Skills Highlight Section - Enhanced */}
+            <div className="mt-6 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border-l-4 border-primary-500">
+              <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                <FiServer className="mr-2 text-primary-600" />
+                IT Support Excellence
               </h4>
-              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">•</span>
-                  <span>Strong technical troubleshooting skills across hardware, software, and network systems</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">•</span>
-                  <span>Proficient in multi-OS environments (Windows, Linux, macOS) configuration and support</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">•</span>
-                  <span>Experience with ticketing systems, Active Directory, and basic automation using PowerShell/Bash</span>
-                </li>
-              </ul>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-medium text-slate-900 dark:text-white mb-2">Core Competencies</h5>
+                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                    <li className="flex items-center">
+                      <span className="text-primary-500 mr-2">•</span>
+                      System Administration
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-primary-500 mr-2">•</span>
+                      Network Management
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-primary-500 mr-2">•</span>
+                      Security Implementation
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-medium text-slate-900 dark:text-white mb-2">Specialized Skills</h5>
+                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                    <li className="flex items-center">
+                      <span className="text-primary-500 mr-2">•</span>
+                      Cloud Infrastructure
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-primary-500 mr-2">•</span>
+                      DevOps Practices
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-primary-500 mr-2">•</span>
+                      Technical Support
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
