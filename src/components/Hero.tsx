@@ -21,7 +21,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-36 md:pt-0">
       {/* Background particles/elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
@@ -43,12 +43,12 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 animate-fade-in mt-28 sm:mt-0">
             <div className="space-y-2">
-              <p className="text-primary-600 dark:text-primary-400 font-medium tracking-wide">Welcome to my digital space</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white font-heading leading-tight">
-                Crafting Digital <br />
-                <span className="text-primary-600 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-purple-600">
+              <p className="text-primary-600 dark:text-primary-400 font-medium tracking-wide text-base sm:text-lg">Welcome to my digital space</p>
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white font-heading leading-tight mt-10 md:mt-0">
+                <span className="block">Crafting Digital</span>
+                <span className="block text-primary-600 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-purple-600">
                   Experiences
                 </span>
               </h1>

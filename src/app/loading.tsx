@@ -1,67 +1,68 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { FiTerminal, FiCode, FiCpu, FiServer, FiLayout } from 'react-icons/fi'
+import Image from 'next/image'
 
 export default function Loading() {
   const [text, setText] = useState('')
-  const [cursorVisible, setCursorVisible] = useState(true)
   const [currentStep, setCurrentStep] = useState(0)
-  const [loadingPercentage, setLoadingPercentage] = useState(0)
-  
-  const loadingTexts = [
-    'Initializing portfolio...',
-    'Loading skills...',
-    'Fetching projects...',
-    'Configuring experience...',
-    'Preparing UI components...',
-    'Almost ready...'
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+
+  // Simplified loading text for mobile
+  const loadingText = isMobile ? [
+    'Loading...',
+    'Almost there...',
+    'Ready!'
+  ] : [
+    'Initializing environment...',
+    'Loading assets...',
+    'Preparing interface...',
+    'Optimizing performance...',
+    'Almost there...',
+    'Ready!'
   ]
 
   useEffect(() => {
-    // Blinking cursor animation
-    const cursorInterval = setInterval(() => {
-      setCursorVisible(prev => !prev)
-    }, 500)
-
-    // Text typing animation
+    let currentIndex = 0
     let currentText = ''
-    let currentTextIndex = 0
-    let currentCharIndex = 0
+    let isDeleting = false
+    let typingSpeed = isMobile ? 100 : 50
 
-    const typingInterval = setInterval(() => {
-      if (currentCharIndex < loadingTexts[currentTextIndex].length) {
-        currentText += loadingTexts[currentTextIndex][currentCharIndex]
-        setText(currentText)
-        currentCharIndex++
+    const typeText = () => {
+      const currentWord = loadingText[currentIndex]
+
+      if (isDeleting) {
+        currentText = currentWord.substring(0, currentText.length - 1)
       } else {
-        setTimeout(() => {
-          currentText = ''
-          currentCharIndex = 0
-          currentTextIndex = (currentTextIndex + 1) % loadingTexts.length
-          setCurrentStep(prev => prev + 1)
-        }, 1000)
+        currentText = currentWord.substring(0, currentText.length + 1)
       }
-    }, 70)
 
-    // Loading progress animation
-    const progressInterval = setInterval(() => {
-      setLoadingPercentage(prev => {
-        const newValue = prev + Math.random() * 5
-        return newValue > 100 ? 100 : newValue
-      })
-    }, 200)
+      setText(currentText)
 
-    return () => {
-      clearInterval(cursorInterval)
-      clearInterval(typingInterval)
-      clearInterval(progressInterval)
+      let typeSpeed = isDeleting ? typingSpeed / 2 : typingSpeed
+
+      if (!isDeleting && currentText === currentWord) {
+        typeSpeed = 2000
+        isDeleting = true
+      } else if (isDeleting && currentText === '') {
+        isDeleting = false
+        currentIndex = (currentIndex + 1) % loadingText.length
+        setCurrentStep(currentIndex)
+      }
+
+      setTimeout(typeText, typeSpeed)
     }
-  }, [])
 
-  // Array of icons to show during loading
-  const icons = [
+    typeText()
+  }, [isMobile])
+
+  // Simplified icons for mobile
+  const icons = isMobile ? [
+    <FiTerminal key="terminal" className="text-primary-500 w-6 h-6" />,
+    <FiCode key="code" className="text-blue-500 w-6 h-6" />,
+  ] : [
     <FiTerminal key="terminal" className="text-primary-500 w-8 h-8" />,
     <FiCode key="code" className="text-blue-500 w-8 h-8" />,
     <FiCpu key="cpu" className="text-purple-500 w-8 h-8" />,
@@ -79,7 +80,7 @@ export default function Loading() {
               scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 2,
+              duration: isMobile ? 1.5 : 2,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -95,56 +96,30 @@ export default function Loading() {
                   rotate: [0, 15, 0, -15, 0],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: isMobile ? 1.5 : 2,
                   repeat: Infinity,
                   repeatType: "reverse"
                 }}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 style={{
                   rotate: `${index * (360 / icons.length)}deg`,
-                  translateX: `${Math.cos(index * (360 / icons.length) * Math.PI / 180) * 40}px`,
-                  translateY: `${Math.sin(index * (360 / icons.length) * Math.PI / 180) * 40}px`,
+                  translateX: `${Math.cos(index * (360 / icons.length) * Math.PI / 180) * (isMobile ? 30 : 40)}px`,
+                  translateY: `${Math.sin(index * (360 / icons.length) * Math.PI / 180) * (isMobile ? 30 : 40)}px`,
                 }}
               >
                 {icon}
               </motion.div>
             ))}
-            <div className="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
-              <motion.div 
-                className="text-2xl font-bold text-primary-600"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.7, 1, 0.7]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <span>SA</span>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
         
-        <div className="mb-4 h-6 flex items-center justify-center">
-          <div className="font-mono text-slate-800 dark:text-slate-200">
-            {text}<span className={`ml-1 inline-block w-2 h-4 bg-primary-500 ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}></span>
-          </div>
-        </div>
-        
-        <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-          <motion.div 
-            className="h-full bg-gradient-to-r from-blue-500 to-primary-500"
-            initial={{ width: 0 }}
-            animate={{ width: `${loadingPercentage}%` }}
-            transition={{ type: "spring", stiffness: 50 }}
-          />
-        </div>
-        
-        <div className="mt-2 text-right text-sm text-slate-500 dark:text-slate-400">
-          {Math.round(loadingPercentage)}%
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+            {text}
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400">
+            {isMobile ? 'Please wait...' : 'Preparing your experience...'}
+          </p>
         </div>
       </div>
     </div>
