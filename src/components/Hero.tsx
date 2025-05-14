@@ -7,8 +7,11 @@ import { socialLinks, aboutMe } from '@/utils/data'
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   
   useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX / window.innerWidth - 0.5,
@@ -16,26 +19,28 @@ export default function Hero() {
       })
     }
     
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    if (!isTouchDevice) {
+      window.addEventListener('mousemove', handleMouseMove)
+      return () => window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isTouchDevice])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-36 md:pt-0">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Background particles/elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
           className="absolute top-1/4 left-1/5 w-64 h-64 rounded-full bg-primary-400/20 dark:bg-primary-600/10 blur-3xl"
           style={{ 
-            transform: `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
-            transition: 'transform 0.3s ease-out'
+            transform: isTouchDevice ? 'none' : `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
+            transition: isTouchDevice ? 'none' : 'transform 0.3s ease-out'
           }}
         />
         <div 
           className="absolute bottom-1/3 right-1/4 w-72 h-72 rounded-full bg-pink-400/20 dark:bg-pink-600/10 blur-3xl"
           style={{ 
-            transform: `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)`,
-            transition: 'transform 0.3s ease-out'
+            transform: isTouchDevice ? 'none' : `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)`,
+            transition: isTouchDevice ? 'none' : 'transform 0.3s ease-out'
           }}
         />
       </div>
@@ -43,7 +48,7 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text content */}
-          <div className="space-y-8 animate-fade-in mt-28 sm:mt-0">
+          <div className="space-y-8 animate-fade-in mt-8 sm:mt-0">
             <div className="space-y-2">
               <p className="text-primary-600 dark:text-primary-400 font-medium tracking-wide text-base sm:text-lg">Welcome to my digital space</p>
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white font-heading leading-tight mt-10 md:mt-0">
@@ -147,8 +152,8 @@ export default function Hero() {
             <div 
               className="relative rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1 shadow-xl"
               style={{ 
-                transform: `perspective(1000px) rotateY(${mousePosition.x * 10}deg) rotateX(${mousePosition.y * -10}deg)`,
-                transition: 'transform 0.5s ease-out'
+                transform: isTouchDevice ? 'perspective(1000px)' : `perspective(1000px) rotateY(${mousePosition.x * 10}deg) rotateX(${mousePosition.y * -10}deg)`,
+                transition: isTouchDevice ? 'none' : 'transform 0.5s ease-out'
               }}
             >
               <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden">
@@ -167,15 +172,15 @@ export default function Hero() {
             <div 
               className="absolute -top-8 -right-8 w-20 h-20 bg-blue-100 dark:bg-blue-900/40 rounded-full opacity-80 z-0"
               style={{ 
-                transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`,
-                transition: 'transform 0.3s ease-out'
+                transform: isTouchDevice ? 'none' : `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`,
+                transition: isTouchDevice ? 'none' : 'transform 0.3s ease-out'
               }}
             />
             <div 
               className="absolute -bottom-10 -left-6 w-16 h-16 bg-pink-100 dark:bg-pink-900/40 rounded-full opacity-80 z-0"
               style={{ 
-                transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
-                transition: 'transform 0.3s ease-out'
+                transform: isTouchDevice ? 'none' : `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
+                transition: isTouchDevice ? 'none' : 'transform 0.3s ease-out'
               }}
             />
           </div>

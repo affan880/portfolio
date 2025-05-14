@@ -31,25 +31,21 @@ interface JobExperience {
 const Experience: React.FC = () => {
   const experiences: JobExperience[] = [
     {
-      id: 'taskbox',
-      company: 'TaskBox AI',
+      id: 'plexar',
+      company: 'Plexar',
       title: 'Lead Developer',
       location: 'Greater New York Area',
       dateRange: 'Jan 2022 - Present',
       achievements: [
-        'Architected an AI-powered DevOps assistant platform that integrates with Slack and Microsoft Teams, automating routine tasks and troubleshooting',
-        'Designed and implemented the core NLP processing pipeline leveraging LLMs to handle user queries with an 87% accuracy rate',
-        'Led a team of 4 engineers, implementing agile methodologies that reduced development cycles by 30% and improved sprint velocity',
-        'Secured $500K in seed funding by developing prototype and presenting technical vision to investors'
+        'Developed Plexar, a React Native mobile application for advanced email and task management, available at plexar.xyz.',
+        'Integrated the Gmail API to enable users to seamlessly send and manage emails directly within the application.',
+        'Implemented AI-powered features to provide users with advanced, hands-free control over Gmail functionalities.',
+        'Designed and built an intuitive task management system within Plexar to complement email workflows and boost productivity.'
       ],
       projects: [
         {
-          name: 'NLP Processing Pipeline',
-          description: 'Core natural language processing system using OpenAI APIs with custom prompt engineering to handle technical IT queries.'
-        },
-        {
-          name: 'Integration Framework',
-          description: 'Extensible platform for connecting with DevOps tools including GitHub, Jenkins, and Kubernetes.'
+          name: 'Plexar Mobile Application',
+          description: 'A React Native app integrating the Gmail API for AI-enhanced email management and built-in task organization. Visit at plexar.xyz.'
         }
       ]
     },

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from 'react'
+import { useState, useRef, ChangeEvent, FormEvent, MouseEvent, useEffect } from 'react'
 import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin, FiCalendar } from 'react-icons/fi'
 import { socialLinks, aboutMe } from '@/utils/data'
 // import emailjs from '@emailjs/browser'
@@ -14,7 +14,13 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const formRef = useRef<HTMLFormElement>(null)
+  
+  useEffect(() => {
+    const touchCheck = window.matchMedia("(pointer: coarse)").matches;
+    setIsTouchDevice(touchCheck);
+  }, []);
   
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -57,7 +63,7 @@ export default function Contact() {
   }
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!formRef.current) return
+    if (isTouchDevice || !formRef.current) return;
     const form = formRef.current
     
     const rect = form.getBoundingClientRect()
@@ -74,7 +80,7 @@ export default function Contact() {
   }
   
   const handleMouseLeave = () => {
-    if (!formRef.current) return
+    if (isTouchDevice || !formRef.current) return;
     const form = formRef.current
     form.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
     form.style.transition = 'transform 0.5s ease-out'
@@ -193,8 +199,8 @@ export default function Contact() {
             <form 
               ref={formRef}
               onSubmit={handleSubmit}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
+              onMouseMove={!isTouchDevice ? handleMouseMove : undefined}
+              onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
               className="card p-6 md:p-8 will-change-transform"
               style={{ transformStyle: 'preserve-3d' }}
             >

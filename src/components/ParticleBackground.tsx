@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 interface Particle {
   x: number;
@@ -18,8 +18,18 @@ const ParticleBackground: React.FC = () => {
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: null as number | null, y: null as number | null });
   const rafRef = useRef<number | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Check for touch device immediately
+    const touchCheck = window.matchMedia("(pointer: coarse)").matches;
+    setIsTouchDevice(touchCheck);
+
+    if (touchCheck) {
+      // If it's a touch device, don't initialize the particle system
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -163,6 +173,8 @@ const ParticleBackground: React.FC = () => {
 
     // Cleanup
     return () => {
+      if (touchCheck) return; // No listeners to remove if not initialized
+
       window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
@@ -173,7 +185,11 @@ const ParticleBackground: React.FC = () => {
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, []);
+  }, []); // Dependency array is empty, touchCheck is stable after initial set.
+
+  if (isTouchDevice) {
+    return null; // Don't render anything on touch devices
+  }
 
   return (
     <canvas

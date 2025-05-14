@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, MouseEvent } from 'react'
+import { useState, useRef, MouseEvent, useEffect } from 'react'
 import Image from 'next/image'
 import { FiExternalLink, FiGithub, FiX, FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi'
 import { projects } from '@/utils/data'
@@ -47,8 +47,17 @@ interface Project {
 export default function Projects() {
   const [activeProject, setActiveProject] = useState<number | null>(null)
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [viewMode, setViewMode] = useState<'3d' | '2d'>('3d') // Default to gallery view
+  const [viewMode, setViewMode] = useState<'3d' | '2d'>('3d') // Default to 3d, will adjust in useEffect
+  const [isTouchDevice, setIsTouchDevice] = useState(false); // Added for touch detection
   const modalRef = useRef<HTMLDivElement>(null)
+  
+  useEffect(() => {
+    const touchCheck = window.matchMedia("(pointer: coarse)").matches;
+    setIsTouchDevice(touchCheck);
+    if (touchCheck) {
+      setViewMode('2d'); // Default to 2D view on touch devices
+    }
+  }, []); // Run once on mount
   
   const openProjectModal = (index: number) => {
     setActiveProject(index)
@@ -145,6 +154,7 @@ export default function Projects() {
                 key={index} 
                 project={project} 
                 onClick={() => openProjectModal(index)} 
+                isTouchDevice={isTouchDevice}
               />
             ))}
           </div>
@@ -315,13 +325,14 @@ export default function Projects() {
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
+  isTouchDevice?: boolean;
 }
 
-function ProjectCard({ project, onClick }: ProjectCardProps) {
+function ProjectCard({ project, onClick, isTouchDevice }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   
   const handleMouseMove = (e: MouseEvent) => {
-    if (!cardRef.current) return
+    if (isTouchDevice || !cardRef.current) return
     
     const rect = cardRef.current.getBoundingClientRect()
     const x = e.clientX - rect.left
@@ -337,17 +348,25 @@ function ProjectCard({ project, onClick }: ProjectCardProps) {
   }
   
   const handleMouseLeave = () => {
-    if (!cardRef.current) return
+    if (isTouchDevice || !cardRef.current) return
     cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
   }
+
+  // Effect to reset transform if it becomes a touch device or on initial render for touch
+  useEffect(() => {
+    if (isTouchDevice && cardRef.current) {
+      cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    }
+  }, [isTouchDevice]);
   
   return (
     <div
       ref={cardRef}
       className="group relative h-64 rounded-xl overflow-hidden shadow-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:shadow-xl hover:-translate-y-1"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={!isTouchDevice ? handleMouseMove : undefined}
+      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
       onClick={onClick}
+      style={{ transformStyle: 'preserve-3d' }}
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/0 z-10" />
       

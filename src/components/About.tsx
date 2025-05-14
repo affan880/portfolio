@@ -9,8 +9,12 @@ export default function About() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   
   useEffect(() => {
+    const touchCheck = window.matchMedia("(pointer: coarse)").matches
+    setIsTouchDevice(touchCheck)
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -26,46 +30,48 @@ export default function About() {
     }
 
     const card = cardRef.current
-    if (!card) return
     
+    // Define handlers regardless of touchCheck, but only attach if not touch device
     const handleMouseMove = (e: MouseEvent) => {
+      if (!card) return;
       const rect = card.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
-      
       const centerX = rect.width / 2
       const centerY = rect.height / 2
-      
       const rotateX = (y - centerY) / 20
       const rotateY = (centerX - x) / 20
-      
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
     }
     
     const handleMouseLeave = () => {
+      if (!card) return;
       card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`
       card.style.transition = 'transform 0.5s ease-out'
     }
     
     const handleMouseEnter = () => {
+      if (!card) return;
       card.style.transition = 'transform 0.1s'
     }
-    
-    card.addEventListener('mousemove', handleMouseMove)
-    card.addEventListener('mouseleave', handleMouseLeave)
-    card.addEventListener('mouseenter', handleMouseEnter)
+
+    if (card && !touchCheck) {
+      card.addEventListener('mousemove', handleMouseMove)
+      card.addEventListener('mouseleave', handleMouseLeave)
+      card.addEventListener('mouseenter', handleMouseEnter)
+    }
     
     return () => {
-      if (card) {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+      if (card && !touchCheck) { 
         card.removeEventListener('mousemove', handleMouseMove)
         card.removeEventListener('mouseleave', handleMouseLeave)
         card.removeEventListener('mouseenter', handleMouseEnter)
       }
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
     }
-  }, [])
+  }, []) // Removed cardRef from dependencies as it's stable and already checked
 
   return (
     <section
@@ -162,13 +168,13 @@ export default function About() {
               </ul>
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-6 flex flex-col items-start sm:flex-row sm:items-center sm:justify-between">
             <div className="text-sm text-slate-500 dark:text-slate-400 italic">
               Technologies: React, TypeScript, Node.js, OpenAI API, Firebase, Redux Toolkit
             </div>
             <a 
               href="#projects" 
-              className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+              className="mt-2 sm:mt-0 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md"
             >
               Learn More
             </a>

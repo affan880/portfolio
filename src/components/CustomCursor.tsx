@@ -19,6 +19,7 @@ const CustomCursor: React.FC = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorOuterRef = useRef<HTMLDivElement>(null);
   const cursorInnerRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<number | null>(null);
@@ -26,6 +27,10 @@ const CustomCursor: React.FC = () => {
   
   // Initialize cursor
   useEffect(() => {
+    const touchCheck = window.matchMedia("(pointer: coarse)").matches;
+    setIsTouchDevice(touchCheck);
+    if (touchCheck) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
       setIsVisible(true);
@@ -76,6 +81,7 @@ const CustomCursor: React.FC = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     
     return () => {
+      if (touchCheck) return;
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('mouseup', handleMouseUp);
@@ -86,6 +92,8 @@ const CustomCursor: React.FC = () => {
 
   // Animation loop for cursor
   useEffect(() => {
+    if (isTouchDevice) return;
+
     const animateCursor = (time: number) => {
       if (previousTimeRef.current === null) {
         previousTimeRef.current = time;
@@ -117,14 +125,17 @@ const CustomCursor: React.FC = () => {
     requestRef.current = requestAnimationFrame(animateCursor);
     
     return () => {
+      if (isTouchDevice) return;
       if (requestRef.current) {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [position, isVisible]);
+  }, [position, isVisible, isTouchDevice]);
 
   // Create particles on click
   const createClickParticles = () => {
+    if (isTouchDevice) return;
+
     const newParticles: Particle[] = [];
     const colors = ['#4f46e5', '#3b82f6', '#0ea5e9', '#06b6d4', '#14b8a6'];
     
@@ -159,6 +170,10 @@ const CustomCursor: React.FC = () => {
     ${activeElement === 'button' ? 'mix-blend-difference' : ''}
     ${isVisible ? 'block' : 'hidden'}
   `;
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <>

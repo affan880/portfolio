@@ -25,6 +25,17 @@ export default function Header() {
     }
   }, [])
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
       <header className={`fixed w-full z-50 transition-all duration-300 ${
