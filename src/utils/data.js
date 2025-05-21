@@ -2,6 +2,24 @@ const joinWithPipe = (array) => array.join(" | ");
 const projects = [
     {
       id: 1,
+      title: 'Voice-Controlled Gmail Assistant',
+      tagLine: 'Hands-free email management powered by AI',
+      description: "A voice-command assistant that fetches, summarizes, and sends Gmail emails using natural language. Designed specifically for Omi's AI integration workflows, it combines OpenAI's language model with Google services for seamless, hands-free email management.<br/><br/>Features include:<br/>• Voice commands for email actions (fetch, summarize, reply)<br/>• Gmail API integration for secure inbox access<br/>• OpenAI-powered NLP and response generation<br/>• Google OAuth2 for secure authentication<br/>• Sessionless backend using Supabase + Redis",
+      techStack: ['Node.js', 'Express.js', 'OpenAI API', 'Supabase', 'Redis', 'PostgreSQL', 'WebSockets'],
+      company: 'Omi',
+      logo: 'https://ik.imagekit.io/affan/Projects/Hey%20Gmail/unnamed.png?updatedAt=1747853189836',
+      countries: 'Global',
+      language: 'English',
+      category: 'AI',
+      platforms: ['Web'],
+      screenshots: [
+        'https://ik.imagekit.io/affan/Projects/Hey%20Gmail/ChatGPT%20Image%20May%2021,%202025%20at%2002_34_51%20PM.png?updatedAt=1747852636178'
+      ],
+      link: 'https://h.omi.me/apps/01JV4PTSFHEWT84BJQP6HJKV01',
+      banner: 'https://ik.imagekit.io/affan/Projects/Hey%20Gmail/ChatGPT%20Image%20May%2021,%202025%20at%2002_34_51%20PM.png?updatedAt=1747852636178'
+    },
+    {
+      id: 2,
       title: 'Academic Ally',
       tagLine: 'Your go-to source for academic resources!',
       description: "Academic Ally is a comprehensive platform designed to empower students in their academic pursuits and support them throughout their educational journey. we understand the challenges faced by students during their academic journey. We recognize that engineering students require specialized support to excel in their courses, and that's why we have dedicated our platform exclusively to their needs. <br/><br/> Our platform offers a vast collection of academic resources, we provide Academic notes, Syllabus, Question Papers and Other Resources. In addition to the rich collection of educational materials, we also offer a range of valuable features to enhance your learning experience.",
@@ -26,7 +44,7 @@ const projects = [
       banner: 'https://ik.imagekit.io/affan/Projects/Academic%20Ally.png?updatedAt=1699218514808'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Academic Ally Web App',
       tagLine: 'Your go-to source for academic resources!',
       description: "Academic Ally Web App is an expansion of the acclaimed Android application, designed to cater to the diverse needs of desktop users. It has not only broadened the reach of Academic Ally but has also cultivated a community of over 600 users, with an impressive 400+ engaging with the app regularly.",
@@ -46,7 +64,7 @@ const projects = [
       banner: 'https://ik.imagekit.io/affan/Projects/Academic%20Ally%20Web%20App/2.png'
     },
     {
-      id: 3,
+      id: 4,
       title: 'ULikeMe',
       tagLine: 'Connecting Hearts, One Like at a Time.',
       description: "A Dating App built using react native and firebase.",
@@ -71,7 +89,7 @@ const projects = [
       banner: 'https://ik.imagekit.io/affan/Projects/ULikeMe/3.png'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Worketzy',
       tagLine: 'Hiring Just Got Better!',
       description: "This app was conceived as part of a mini-project with a singular goal: to revolutionize and simplify the hiring process. As the mastermind behind this endeavor, I crafted a platform that streamlines every aspect of hiring, making it not just easy but better.",
@@ -97,7 +115,7 @@ const projects = [
       banner: 'https://ik.imagekit.io/affan/Projects/worketzy/4.png'
     },
     {
-      id: 5,
+      id: 6,
       title: 'IEEE Nsakcet',
       tagLine: 'Student club',
       description: "IEEE Nsakcet is a website designed and developed to elevate the digital presence of the IEEE Student Branch. From October to November 2022, I took the reins in creating a website that not only showcases the dynamic essence of the IEEE community but also prioritizes optimal performance and user engagement.<br/><br/> Harnessing the power of Javascript, React, React Bootstrap, and Firebase, I orchestrated a space that goes beyond aesthetics. By implementing strategic optimizations, I successfully reduced page load times by an impressive 20%, ensuring a seamless and swift browsing experience for visitors.",
@@ -117,7 +135,7 @@ const projects = [
       banner: 'https://ik.imagekit.io/affan/Projects/IEEE/5.png'
     },
     {
-      id: 6,
+      id: 7,
       title: 'JawesomeScript',
       tagLine: 'Unleashing JavaScript Awesomeness, One Project at a Time.',
       description: "JawesomeScript is your go-to platform for exploring a curated collection of basic JavaScript projects. Dive into the world of coding creativity and discover the awesomeness of JavaScript through simple yet impactful projects. Whether you're a beginner or an experienced developer, JawesomeScript has something for everyone. Elevate your JavaScript skills and embark on a journey of continuous learning with our diverse range of projects. Join the community of JavaScript enthusiasts, and let's make coding more awesome together!",
@@ -135,7 +153,7 @@ const projects = [
       ],
       link: '',
       banner: 'https://ik.imagekit.io/affan/Projects/JawesomeScript/6.png'
-    },
+    }
   ];
   
   const aboutMe = {
@@ -161,7 +179,7 @@ const projects = [
         school: "St. Francis College, Brooklyn, NYC",
         graduationYear: 2023,
     },
-    image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg?updatedAt=1744561490822',
+    image: 'https://ik.imagekit.io/affan/Projects/IMG_20230128_065318_032.jpg?updatedAt=1747847581368',
     email: "syedaffan880@gmail.com",
     web: 'https://affan.io',
     webName: 'affan.io',

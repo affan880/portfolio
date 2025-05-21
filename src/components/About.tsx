@@ -97,7 +97,7 @@ export default function About() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
               </span>
-              Building the Future: TaskBox AI
+              Building the Future: Plexar
             </h3>
             <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium">
               In Development
@@ -173,7 +173,7 @@ export default function About() {
               Technologies: React, TypeScript, Node.js, OpenAI API, Firebase, Redux Toolkit
             </div>
             <a 
-              href="#projects" 
+              href="http://plexar.xyz/" 
               className="mt-2 sm:mt-0 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md"
             >
               Learn More
@@ -223,21 +223,6 @@ export default function About() {
                         </p>
                         <p className="text-sm text-slate-500 dark:text-slate-500">
                           {eduBg[0].desc}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center space-x-4">
-                      <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
-                        <FiCode className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-slate-900 dark:text-white">Experience</h4>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                          Full Stack Developer
-                        </p>
-                        <p className="text-sm text-slate-500 dark:text-slate-500">
-                          React & React Native Specialist
                         </p>
                       </div>
                     </div>

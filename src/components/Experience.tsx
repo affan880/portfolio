@@ -33,9 +33,9 @@ const Experience: React.FC = () => {
     {
       id: 'plexar',
       company: 'Plexar',
-      title: 'Lead Developer',
+      title: 'Developer',
       location: 'Greater New York Area',
-      dateRange: 'Jan 2022 - Present',
+      dateRange: 'Jan 2024 - Present',
       achievements: [
         'Developed Plexar, a React Native mobile application for advanced email and task management, available at plexar.xyz.',
         'Integrated the Gmail API to enable users to seamlessly send and manage emails directly within the application.',
@@ -137,7 +137,7 @@ const Experience: React.FC = () => {
 
   return (
     <Section id="experience">
-      <SectionTitle>Where I've Worked</SectionTitle>
+      {/* <SectionTitle>Where I've Worked</SectionTitle> */}
       <ExperienceContainer>
         <TabsContainer>
           {experiences.map((exp) => (

@@ -118,10 +118,6 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
-                  Featured <span className="text-primary-600">Projects</span>
-                </h2>
-                <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
               </motion.div>
               <Projects />
             </div>
@@ -136,10 +132,6 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
-                  Get In <span className="text-primary-600">Touch</span>
-                </h2>
-                <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
               </motion.div>
               <Contact />
             </div>
