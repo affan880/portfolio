@@ -10,6 +10,7 @@ export default function Contact() {
     name: '',
     email: '',
     message: '',
+    _gotcha: '', // Add honeypot field
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
@@ -38,17 +39,24 @@ export default function Contact() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(formData),
       })
       
+      const data = await response.json()
+      
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        let errorMessage = 'There was an error sending your message. Please try again.'
+        if (data && data.errors) {
+          errorMessage = data.errors.map((error: any) => error.message).join(', ')
+        }
+        throw new Error(errorMessage)
       }
       
       // Handle successful submission
       setSubmitSuccess(true)
-      setFormData({ name: '', email: '', message: '' })
+      setFormData({ name: '', email: '', message: '', _gotcha: '' })
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -56,7 +64,7 @@ export default function Contact() {
       }, 5000)
     } catch (error) {
       console.error('Error submitting form:', error)
-      setSubmitError('There was an error sending your message. Please try again.')
+      setSubmitError(error instanceof Error ? error.message : 'There was an error sending your message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -252,6 +260,17 @@ export default function Contact() {
                     placeholder="Your message..."
                   />
                 </div>
+                
+                {/* Honeypot field to prevent spam */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  value={formData._gotcha}
+                  onChange={handleChange}
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
                 
                 <div>
                   <button
