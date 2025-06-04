@@ -58,7 +58,7 @@ return (
         </div>
         <div className='flex flex-row p-3 pl-8 items-start border-b border-gray-600 pb-2'>
             <p className="text-xs text-white mr-2 text-start w-[30%]">Email: </p>
-            <p className="text-gray-400 text-center text-xs">syedaffan880@gmail.com</p>
+            <p className="text-gray-400 text-center text-xs">sydaffn@gmail.com</p>
         </div>
         <div className='flex flex-row p-3 pl-8 items-start border-b border-gray-600 pb-2'>
             <p className="text-xs text-white mr-2 text-start w-[30%]">Experience: </p>

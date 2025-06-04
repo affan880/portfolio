@@ -31,30 +31,11 @@ interface JobExperience {
 const Experience: React.FC = () => {
   const experiences: JobExperience[] = [
     {
-      id: 'plexar',
-      company: 'Plexar',
-      title: 'Developer',
-      location: 'Greater New York Area',
-      dateRange: 'Jan 2024 - Present',
-      achievements: [
-        'Developed Plexar, a React Native mobile application for advanced email and task management, available at plexar.xyz.',
-        'Integrated the Gmail API to enable users to seamlessly send and manage emails directly within the application.',
-        'Implemented AI-powered features to provide users with advanced, hands-free control over Gmail functionalities.',
-        'Designed and built an intuitive task management system within Plexar to complement email workflows and boost productivity.'
-      ],
-      projects: [
-        {
-          name: 'Plexar Mobile Application',
-          description: 'A React Native app integrating the Gmail API for AI-enhanced email management and built-in task organization. Visit at plexar.xyz.'
-        }
-      ]
-    },
-    {
       id: 'nordstone',
       company: 'Nordstone',
       title: 'Junior Software Developer',
       location: 'Remote',
-      dateRange: 'May 2021 - Dec 2021',
+      dateRange: 'January 2023 - March 2024',
       achievements: [
         'Built high-performance UI components using React and Chakra UI, improving load times by 15%',
         'Led UI optimizations, reducing render time by 30% using React.memo and useCallback',
@@ -73,7 +54,7 @@ const Experience: React.FC = () => {
       company: 'Texla Culture',
       title: 'Application Developer Intern',
       location: 'Remote',
-      dateRange: 'Jan 2021 - Apr 2021',
+      dateRange: 'January 2022 - August 2022',
       achievements: [
         'Refactored key UI components using TypeScript, improving code reliability',
         'Wrote unit and integration tests using Vitest and Jest, improving code coverage by 35%',
@@ -131,7 +112,7 @@ const Experience: React.FC = () => {
     }
   ]
 
-  const [activeTabId, setActiveTabId] = useState<string>('taskbox')
+  const [activeTabId, setActiveTabId] = useState<string>('nordstone')
 
   const activeExperience = experiences.find(exp => exp.id === activeTabId) || experiences[0]
 

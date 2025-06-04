@@ -112,7 +112,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## 📧 Contact
 
 Syed Affan
-*   Email: [syedaffan880@gmail.com](mailto:syedaffan880@gmail.com)
+*   Email: [sydaffn@gmail.com](mailto:sydaffn@gmail.com)
 *   LinkedIn: [https://www.linkedin.com/in/syed-affan](https://www.linkedin.com/in/syed-affan)
 *   GitHub: [https://github.com/affan880](https://github.com/affan880)
 
