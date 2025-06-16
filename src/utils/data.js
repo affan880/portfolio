@@ -64,7 +64,7 @@ const projects = [
       countries: 'Global',
       language: 'English',
       category: 'AI',
-      platforms: ['Web'],
+      platforms: ['Android', 'iOS'],
       screenshots: [
         'https://ik.imagekit.io/affan/Projects/Email.png?updatedAt=1749951388574'
       ],
@@ -82,11 +82,11 @@ const projects = [
       countries: 'Global',
       language: 'English',
       category: 'AI',
-      platforms: ['Web'],
+      platforms: ['Android', 'iOS'],
       screenshots: [
         'https://ik.imagekit.io/affan/Projects/deck.png'
       ],
-      link: 'https://h.omi.me/apps/deck',
+      link: 'https://h.omi.me/apps/01JVWEWYTF1A8E4K5CNYKF63PF',
       banner: 'https://ik.imagekit.io/affan/Projects/deck.png'
     },
     {
@@ -102,10 +102,12 @@ const projects = [
       category: 'Finance',
       platforms: ['Web'],
       screenshots: [
-        'https://ik.imagekit.io/affan/Projects/FinTrack/fintrack-dashboard.png',
-        'https://ik.imagekit.io/affan/Projects/FinTrack/fintrack-charts.png'
+        'https://ik.imagekit.io/affan/Projects/FinTrack/fin1.png',
+        'https://ik.imagekit.io/affan/Projects/FinTrack/fin2.png',
+        'https://ik.imagekit.io/affan/Projects/FinTrack/fin3.png',
+        'https://ik.imagekit.io/affan/Projects/FinTrack/fin4.png',
       ],
-      link: 'https://fintrack.app',
+      link: 'https://fin-track.live',
       banner: 'https://ik.imagekit.io/affan/Projects/FinTrack.png'
     },
     {
@@ -248,7 +250,7 @@ const projects = [
     phone: '+1 7188010785',
     skills: [
       // Development skills
-      'ReactJs', 'React Native', 'JavaScript', 'TypeScript', 'Node.js', 'CSS', 'HTML', 'NextJs', 'RestAPI', 
+      'ReactJs', 'React Native', 'JavaScript', 'TypeScript','Python', 'Java', 'Node.js', 'CSS', 'HTML', 'NextJs', 'RestAPI', 
       'Tailwind Css', 'Bootstrap', 'Git', 'Github', 'Firebase', 'MongoDB', 'LESS', 'ICONIC', 'Sass', 'SCSS', 
       'Redux', 'JQuery',
       // Core IT Skills
@@ -275,7 +277,7 @@ const projects = [
     email: "sydaffn@gmail.com",
     github: 'https://github.com/affan880',
     linkedin: 'https://www.linkedin.com/in/syed-affan',
-    resume: 'https://ik.imagekit.io/affan/Affan_Resume.pdf?updatedAt=1744561183703',
+    resume: 'https://ik.imagekit.io/affan/Affan_Resume.pdf',
     calendly: 'https://calendly.com/affann'
   };
 
