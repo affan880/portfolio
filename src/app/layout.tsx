@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Raleway } from 'next/font/google'
 import ErrorBoundary from '@/components/ErrorBoundary'
-import { CustomThemeProvider } from '@/contexts/ThemeProvider'
 import StyledComponentsRegistry from './registry'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -22,13 +21,22 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${raleway.variable}`} suppressHydrationWarning>
       <body>
         <StyledComponentsRegistry>
-          <CustomThemeProvider>
-            <div className="min-h-screen transition-colors duration-300">
+          <div className="min-h-screen w-full bg-white relative">
+            {/* Noise Texture (Darker Dots) Background */}
+            <div
+              className="fixed inset-0 z-0"
+              style={{
+                background: "#ffffff",
+                backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.35) 1px, transparent 0)",
+                backgroundSize: "20px 20px",
+              }}
+            />
+            <div className="relative z-10">
               <ErrorBoundary>
                 {children}
               </ErrorBoundary>
             </div>
-          </CustomThemeProvider>
+          </div>
         </StyledComponentsRegistry>
       </body>
     </html>

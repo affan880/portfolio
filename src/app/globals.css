@@ -4,29 +4,26 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 248, 250, 252;
-  --background-end-rgb: 241, 245, 249;
-  --primary: 37, 99, 235;
-  --secondary: 16, 185, 129;
-  --accent: 244, 63, 94;
+  --background-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 15, 23, 42;
-    --background-end-rgb: 30, 41, 59;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  position: relative;
+  min-height: 100vh;
   font-family: var(--font-inter);
 }
 
@@ -34,18 +31,108 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-raleway);
 }
 
-@layer components {
-  .hero-button {
-    @apply px-6 py-2 border border-transparent rounded-full bg-blue-600 text-white font-medium transition-all duration-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-md;
-  }
-  
-  .card {
-    @apply bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700;
-  }
+/* Main layout container */
+main {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
-  .nav-link {
-    @apply text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200;
-  }
+/* Noise texture background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-image: 
+    radial-gradient(circle, transparent 20%, white 21%, white 80%, transparent 81%),
+    linear-gradient(0deg, transparent 24%, rgba(0,0,0,.05) 25%, rgba(0,0,0,.05) 26%, transparent 27%, transparent 74%, rgba(0,0,0,.05) 75%, rgba(0,0,0,.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0,0,0,.05) 25%, rgba(0,0,0,.05) 26%, transparent 27%, transparent 74%, rgba(0,0,0,.05) 75%, rgba(0,0,0,.05) 76%, transparent 77%, transparent);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgb(0, 0, 0);
+}
+
+/* Focus outline */
+*:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.3);
+  outline-offset: 2px;
+}
+
+/* Profile image enhancement */
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-container::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle, rgba(0,0,0,0.02) 0%, transparent 70%);
+  border-radius: 3rem;
+  z-index: -1;
+}
+
+/* Modern profile styling */
+.profile-modern {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-modern::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.05) 100%);
+  border-radius: 1.5rem;
+  pointer-events: none;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-8 py-3 bg-black text-white rounded-full hover:bg-black/80 transition-all duration-200 font-medium;
+}
+
+.btn-secondary {
+  @apply px-8 py-3 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-200 font-medium;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-black/10 hover:border-black/20 transition-all duration-300;
+}
+
+/* Link styles */
+.link {
+  @apply text-black/70 hover:text-black transition-colors duration-200;
 }
 
 /* Animations */
@@ -59,9 +146,43 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes pulse {
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-10px) rotate(1deg); 
+  }
+  66% { 
+    transform: translateY(5px) rotate(-1deg); 
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(8px) rotate(-1deg); 
+  }
+  66% { 
+    transform: translateY(-5px) rotate(1deg); 
+  }
+}
+
+@keyframes profileGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+@keyframes breathe {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.02); }
 }
 
 .animate-fade-in {
@@ -72,38 +193,124 @@ h1, h2, h3, h4, h5, h6 {
   animation: slideUp 0.8s ease-out forwards;
 }
 
-.animate-pulse-slow {
-  animation: pulse 4s ease-in-out infinite;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+.animate-float-reverse {
+  animation: float-reverse 8s ease-in-out infinite;
 }
 
-::-webkit-scrollbar-track {
-  background: rgb(241, 245, 249);
+.animate-profile-glow {
+  animation: profileGlow 4s ease-in-out infinite;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(148, 163, 184);
-  border-radius: 5px;
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(100, 116, 139);
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: rgb(30, 41, 59);
+/* Backdrop blur for navigation */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Typography improvements */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .mobile-menu {
+    @apply fixed inset-0 z-40 bg-white/95 backdrop-blur-md;
+  }
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
   }
   
-  ::-webkit-scrollbar-thumb {
-    background: rgb(71, 85, 105);
+  .animate-float-reverse {
+    animation: float-reverse 5s ease-in-out infinite;
   }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(100, 116, 139);
+}
+
+@media (min-width: 641px) {
+  .text-responsive-xl {
+    font-size: 4rem;
+    line-height: 1.1;
   }
+}
+
+@media (min-width: 768px) {
+  .text-responsive-xl {
+    font-size: 5rem;
+    line-height: 1.1;
+  }
+}
+
+/* Glassmorphism effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Premium shadow system */
+.shadow-premium {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-glow {
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile specific enhancements */
+.profile-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.profile-shine:hover::after {
+  opacity: 1;
+}
+
+/* Prevent overflow on all sections */
+section {
+  max-width: 100vw;
+  overflow-x: hidden;
 }

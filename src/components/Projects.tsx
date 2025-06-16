@@ -2,7 +2,8 @@
 
 import { useState, useRef, MouseEvent } from 'react'
 import Image from 'next/image'
-import { FiExternalLink, FiGithub, FiX, FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi'
+import { motion } from 'framer-motion'
+import { FiExternalLink, FiGithub, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { projects } from '@/utils/data'
 
 // Define proper types for project data
@@ -59,52 +60,53 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white font-heading mb-4">
-            My <span className="text-primary-600">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-primary-500 rounded-full"></div>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard 
-              key={index} 
-              project={project} 
-              onClick={() => openProjectModal(index)} 
-            />
-          ))}
-        </div>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard 
+            key={index} 
+            project={project} 
+            index={index}
+            onClick={() => openProjectModal(index)} 
+          />
+        ))}
       </div>
       
       {/* Project Details Modal */}
       {activeProject !== null && (
-        <div 
+        <motion.div 
           ref={modalRef}
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 overflow-y-auto"
           onClick={handleBackdropClick}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
-          <div className="bg-white dark:bg-slate-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white dark:bg-slate-900 z-10 flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700">
-              <div className="flex items-center">
+          <motion.div 
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl mx-4"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: "spring", damping: 15 }}
+          >
+            <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-4 sm:p-6 border-b border-black/10">
+              <div className="flex items-center min-w-0 flex-1">
                 {projects[activeProject].logo && (
                   <Image 
                     src={projects[activeProject].logo} 
                     alt={projects[activeProject].title}
-                    width={40}
-                    height={40}
-                    className="rounded-md mr-3"
+                    width={32}
+                    height={32}
+                    className="rounded-lg mr-3 flex-shrink-0"
                   />
                 )}
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h3 className="text-lg sm:text-xl font-bold text-black truncate">
                   {projects[activeProject].title}
                 </h3>
               </div>
               <button 
                 onClick={closeProjectModal}
-                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400"
+                className="p-2 rounded-full hover:bg-black/5 text-black/60 transition-colors flex-shrink-0 ml-2"
                 aria-label="Close modal"
               >
                 <FiX className="w-5 h-5" />
@@ -113,7 +115,7 @@ export default function Projects() {
             
             {/* Project Screenshots Carousel */}
             <div className="relative">
-              <div className="w-full h-72 sm:h-96 bg-slate-100 dark:bg-slate-800 relative">
+              <div className="w-full h-64 sm:h-72 md:h-96 bg-black/5 relative">
                 {projects[activeProject].screenshots.length > 0 ? (
                   <Image 
                     src={projects[activeProject].screenshots[currentSlide]} 
@@ -122,7 +124,7 @@ export default function Projects() {
                     className="object-contain"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-full text-slate-400 dark:text-slate-600">
+                  <div className="flex items-center justify-center h-full text-black/40">
                     No screenshots available
                   </div>
                 )}
@@ -131,29 +133,28 @@ export default function Projects() {
                   <>
                     <button 
                       onClick={prevSlide}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white shadow-md hover:bg-white dark:hover:bg-slate-900"
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/90 text-black shadow-lg hover:bg-white transition-colors"
                       aria-label="Previous slide"
                     >
-                      <FiChevronLeft className="w-5 h-5" />
+                      <FiChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                     <button 
                       onClick={nextSlide}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white shadow-md hover:bg-white dark:hover:bg-slate-900"
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/90 text-black shadow-lg hover:bg-white transition-colors"
                       aria-label="Next slide"
                     >
-                      <FiChevronRight className="w-5 h-5" />
+                      <FiChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                     
-                    {/* Dots indicator */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                    <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
                       {projects[activeProject].screenshots.map((_, i) => (
                         <button
                           key={i}
                           onClick={() => setCurrentSlide(i)}
-                          className={`w-2.5 h-2.5 rounded-full ${
+                          className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
                             i === currentSlide 
-                              ? 'bg-primary-500' 
-                              : 'bg-slate-300 dark:bg-slate-600'
+                              ? 'bg-black' 
+                              : 'bg-black/20'
                           }`}
                           aria-label={`Go to slide ${i + 1}`}
                         />
@@ -164,23 +165,23 @@ export default function Projects() {
               </div>
             </div>
             
-            <div className="p-6">
-              <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-2">
+            <div className="p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-semibold text-black/80 mb-2">
                 {projects[activeProject].tagLine}
               </h4>
               
-              <div className="mt-4 text-slate-700 dark:text-slate-300 whitespace-pre-line">
+              <div className="mt-4 text-black/70 leading-relaxed text-sm sm:text-base">
                 <div dangerouslySetInnerHTML={{ __html: projects[activeProject].description }} />
               </div>
               
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6">
                 <div>
-                  <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-2">Tech Stack</h5>
+                  <h5 className="text-sm font-semibold text-black mb-3">Tech Stack</h5>
                   <div className="flex flex-wrap gap-2">
                     {projects[activeProject].techStack.map((tech, i) => (
                       <span 
                         key={i}
-                        className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm"
+                        className="px-2 sm:px-3 py-1 sm:py-1.5 bg-black/5 text-black/70 rounded-lg text-xs sm:text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -188,33 +189,33 @@ export default function Projects() {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   <div>
-                    <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">Company</h5>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">{projects[activeProject].company}</p>
+                    <h5 className="text-sm font-semibold text-black mb-1">Company</h5>
+                    <p className="text-xs sm:text-sm text-black/60">{projects[activeProject].company}</p>
                   </div>
                   <div>
-                    <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">Category</h5>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">{projects[activeProject].category}</p>
+                    <h5 className="text-sm font-semibold text-black mb-1">Category</h5>
+                    <p className="text-xs sm:text-sm text-black/60">{projects[activeProject].category}</p>
                   </div>
                   <div>
-                    <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">Platforms</h5>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">{projects[activeProject].platforms.join(', ')}</p>
+                    <h5 className="text-sm font-semibold text-black mb-1">Platforms</h5>
+                    <p className="text-xs sm:text-sm text-black/60">{projects[activeProject].platforms.join(', ')}</p>
                   </div>
                   <div>
-                    <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">Language</h5>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">{projects[activeProject].language}</p>
+                    <h5 className="text-sm font-semibold text-black mb-1">Language</h5>
+                    <p className="text-xs sm:text-sm text-black/60">{projects[activeProject].language}</p>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-8 flex gap-4">
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                 {projects[activeProject].link && (
                   <a 
                     href={projects[activeProject].link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                    className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-black text-white rounded-full hover:bg-black/80 transition-colors font-medium text-sm sm:text-base"
                   >
                     <FiExternalLink className="w-4 h-4" />
                     Visit Project
@@ -225,7 +226,7 @@ export default function Projects() {
                     href={projects[activeProject].link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                    className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all font-medium text-sm sm:text-base"
                   >
                     <FiGithub className="w-4 h-4" />
                     View Code
@@ -233,68 +234,87 @@ export default function Projects() {
                 )}
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
-    </section>
+    </>
   )
 }
 
 interface ProjectCardProps {
   project: Project;
+  index: number;
   onClick: () => void;
 }
 
-function ProjectCard({ project, onClick }: ProjectCardProps) {
+function ProjectCard({ project, index, onClick }: ProjectCardProps) {
   return (
-    <div
-      className="group relative h-64 rounded-xl overflow-hidden shadow-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:shadow-xl hover:-translate-y-1"
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="group relative overflow-hidden rounded-2xl bg-white border border-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer hover:shadow-xl"
       onClick={onClick}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/0 z-10" />
+      <div className="aspect-[4/3] relative overflow-hidden">
+        {project.banner ? (
+          <Image
+            src={project.banner}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-black/5 to-black/10">
+            {project.logo && (
+              <Image
+                src={project.logo}
+                alt={project.title}
+                width={80}
+                height={80}
+                className="opacity-60"
+              />
+            )}
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+      </div>
       
-      {project.banner ? (
-        <Image
-          src={project.banner}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      ) : (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-200 to-primary-600 dark:from-primary-900 dark:to-primary-600">
-          {project.logo && (
-            <Image
-              src={project.logo}
-              alt={project.title}
-              width={80}
-              height={80}
-              className="opacity-80"
-            />
-          )}
-        </div>
-      )}
-      
-      <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-        <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
-        <p className="text-sm text-white/80 mb-2">{project.tagLine}</p>
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-black mb-2 group-hover:text-black/80 transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-black/60 text-sm mb-4 line-clamp-2">
+          {project.tagLine}
+        </p>
         
-        <div className="flex flex-wrap gap-1 mt-2">
-          {project.techStack.slice(0, 3).map((tech, index) => (
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.techStack.slice(0, 3).map((tech, techIndex) => (
             <span
-              key={index}
-              className="text-xs py-1 px-2 bg-white/20 backdrop-blur-sm rounded-full text-white"
+              key={techIndex}
+              className="text-xs py-1 px-3 bg-black/5 rounded-full text-black/70 font-medium"
             >
               {tech}
             </span>
           ))}
           {project.techStack.length > 3 && (
-            <span className="text-xs py-1 px-2 bg-white/20 backdrop-blur-sm rounded-full text-white flex items-center">
-              <FiPlus className="mr-1" size={10} />
-              {project.techStack.length - 3}
+            <span className="text-xs py-1 px-3 bg-black/5 rounded-full text-black/70 font-medium">
+              +{project.techStack.length - 3} more
             </span>
           )}
         </div>
+        
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-black/50 font-medium">{project.company}</span>
+          <motion.div 
+            className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all"
+            whileHover={{ scale: 1.05 }}
+          >
+            <span className="text-xs">→</span>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </motion.div>
   )
 } 
