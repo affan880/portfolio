@@ -128,7 +128,7 @@ const projects = [
         'https://ik.imagekit.io/affan/Projects/Screenshot%202025-06-14%20at%2010.23.05%E2%80%AFPM.png',
         'https://ik.imagekit.io/affan/Projects/Screenshot%202025-06-14%20at%2010.23.40%E2%80%AFPM.png'
       ],
-      link: 'https://duckpilot.app',
+      link: 'https://duckpilot.netlify.app/',
       banner: 'https://ik.imagekit.io/affan/Projects/DuckPilot.png'
     },
     {
