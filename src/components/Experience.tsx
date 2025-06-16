@@ -31,7 +31,7 @@ const Experience: React.FC = () => {
       projects: [
         {
           name: 'PokerBox',
-          description: 'Reusable UI components built with React and Chakra UI for consistent user experience across multiple applications.'
+          description: 'I helped build Poker Box, a platform for managing poker game data and analyzing hand histories, win rates, and player behavior. It was designed to help both organizers and players get insights into game flow and performance.'
         }
       ]
     },
@@ -50,7 +50,7 @@ const Experience: React.FC = () => {
       projects: [
         {
           name: 'TexlaCulture',
-          description: 'Comprehensive testing framework with Jest and Vitest improving test coverage and code reliability.'
+          description: 'I worked at TexlaCulture, a growing HR-tech startup focused on building tools to improve employee engagement and simplify HR operations. I contributed to the mobile development team, helping build React Native features for internal tools used by HR professionals.'
         }
       ]
     },
